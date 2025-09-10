@@ -1,0 +1,26 @@
+{
+	"item.palamod.paladium_ingot": "Paladium Ingot",
+	"item.palamod.raw_paladium": "Raw Paladium",
+
+	"item.palamod.paladium_chisel": "Paladium Chisel",
+
+	"item.palamod.paladium_sword": "Paladium Sword",
+	"item.palamod.paladium_pickaxe": "Paladium Pickaxe",
+	"item.palamod.paladium_axe": "Paladium Axe",
+	"item.palamod.paladium_shovel": "Paladium Shovel",
+	"item.palamod.paladium_hoe": "Paladium Hoe",
+
+	"item.palamod.paladium_hammer": "Paladium Hammer",
+
+	"block.palamod.paladium_block": "Paladium Block",
+	"block.palamod.paladium_block_stairs": "Paladium Block Stairs",
+	"block.palamod.paladium_block_slab": "Paladium Block Slab",
+
+	"block.palamod.raw_paladium_block": "Raw Paladium Block",
+
+	"block.palamod.paladium_ore": "Paladium Ore",
+	"block.palamod.deepslate_paladium_ore": "Paladium Deepslate Ore",
+
+	"itemgroup.palamod.palamod_items": "Palamod Items",
+	"itemgroup.palamod.palamod_blocks": "Palamod Blocks"
+}

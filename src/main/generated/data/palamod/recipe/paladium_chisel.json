@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "palamod:paladium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " P",
+    "S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "palamod:paladium_chisel"
+  }
+}

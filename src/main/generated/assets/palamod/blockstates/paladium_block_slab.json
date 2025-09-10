@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "palamod:block/paladium_block_slab"
+    },
+    "type=double": {
+      "model": "palamod:block/paladium_block"
+    },
+    "type=top": {
+      "model": "palamod:block/paladium_block_slab_top"
+    }
+  }
+}

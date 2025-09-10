@@ -1,0 +1,7 @@
+// 1.21.1	2025-09-10T20:34:35.7898091	Palamod/Tags for minecraft:item
+ff5f97eb977389c81e684ef3b3177091940eca17 data\minecraft\tags\item\hoes.json
+41a1ec913af3d8988e020eb2d1b383c9a35c9586 data\palamod\tags\item\transformable_items.json
+df561046e0827d077fe1e086b254660bec1934e7 data\minecraft\tags\item\pickaxes.json
+e19562bdf26cb80b8147a86a3d4989118d559ce0 data\minecraft\tags\item\shovels.json
+868008e613fad03e5cb9fde25bf42dbebae4dd0c data\minecraft\tags\item\swords.json
+371ba5de26c6dcc48a79755bb5e80604b2e30478 data\minecraft\tags\item\axes.json
