@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.item.custom.ChiselItem;
 import org.mewaxdev.item.custom.HammerItem;
+import org.mewaxdev.item.custom.ModArmorItem;
 
 public class ModItems {
     public static final Item PALADIUM_INGOT = registerItem("paladium_ingot",
@@ -31,7 +32,7 @@ public class ModItems {
 			));
 	public static final Item PALADIUM_SHOVEL = registerItem("paladium_shovel",
 			new ShovelItem(ModToolMaterials.PALADIUM, new Item.Settings()
-					.attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterials.PALADIUM, 1.5f, -3.0f))
+					.attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterials.PALADIUM, 0, -3.0f))
 			));
 	public static final Item PALADIUM_HOE = registerItem("paladium_hoe",
 			new HoeItem(ModToolMaterials.PALADIUM, new Item.Settings()
@@ -40,7 +41,24 @@ public class ModItems {
 
 	public static final Item PALADIUM_HAMMER = registerItem("paladium_hammer",
 			new HammerItem(ModToolMaterials.PALADIUM, new Item.Settings()
-					.attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PALADIUM, 7, -3.4f))
+					.attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PALADIUM, 5, -3.4f))
+			));
+
+	public static final Item PALADIUM_HELMET = registerItem("paladium_helmet",
+			new ModArmorItem(ModArmorMaterials.PALADIUM_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
+					.maxDamage(2860)
+			));
+	public static final Item PALADIUM_CHESTPLATE = registerItem("paladium_chestplate",
+			new ModArmorItem(ModArmorMaterials.PALADIUM_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+					.maxDamage(4160)
+			));
+	public static final Item PALADIUM_LEGGINGS = registerItem("paladium_leggings",
+			new ModArmorItem(ModArmorMaterials.PALADIUM_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()
+					.maxDamage(3900)
+			));
+	public static final Item PALADIUM_BOOTS = registerItem("paladium_boots",
+			new ModArmorItem(ModArmorMaterials.PALADIUM_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()
+					.maxDamage(3380)
 			));
 
     private static Item registerItem(String name, Item item) {

@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
 	PALADIUM(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
-			4999, 8.0f, 5.0f, 20, () -> Ingredient.ofItems(ModItems.PALADIUM_INGOT));
+			4999, 8.0f, 6.0f, 20, () -> Ingredient.ofItems(ModItems.PALADIUM_INGOT));
 
 	private final TagKey<Block> inverseTag;
 	private final int itemDurability;

@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.item.ArmorItem;
 import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.item.ModItems;
 
@@ -37,6 +38,12 @@ public class ModModelProvider extends FabricModelProvider {
 		itemModelGenerator.register(ModItems.PALADIUM_AXE, Models.HANDHELD);
 		itemModelGenerator.register(ModItems.PALADIUM_SHOVEL, Models.HANDHELD);
 		itemModelGenerator.register(ModItems.PALADIUM_HOE, Models.HANDHELD);
+
 		itemModelGenerator.register(ModItems.PALADIUM_HAMMER, Models.HANDHELD);
+
+		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_HELMET);
+		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_CHESTPLATE);
+		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_LEGGINGS);
+		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_BOOTS);
 	}
 }

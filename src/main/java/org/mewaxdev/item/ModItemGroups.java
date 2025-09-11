@@ -28,6 +28,11 @@ public class ModItemGroups {
 						entries.add(ModItems.PALADIUM_HOE);
 
 						entries.add(ModItems.PALADIUM_HAMMER);
+
+						entries.add(ModItems.PALADIUM_HELMET);
+						entries.add(ModItems.PALADIUM_CHESTPLATE);
+						entries.add(ModItems.PALADIUM_LEGGINGS);
+						entries.add(ModItems.PALADIUM_BOOTS);
 					})
 					.build()
 	);

@@ -39,5 +39,25 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		getOrCreateTagBuilder(ItemTags.HOES)
 				.add(ModItems.PALADIUM_HOE)
 		;
+
+		getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
+				.add(ModItems.PALADIUM_HELMET)
+		;
+		getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+				.add(ModItems.PALADIUM_CHESTPLATE)
+		;
+		getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
+				.add(ModItems.PALADIUM_LEGGINGS)
+		;
+		getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
+				.add(ModItems.PALADIUM_BOOTS)
+		;
+
+		getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+				.add(ModItems.PALADIUM_HELMET)
+				.add(ModItems.PALADIUM_CHESTPLATE)
+				.add(ModItems.PALADIUM_LEGGINGS)
+				.add(ModItems.PALADIUM_BOOTS)
+		;
 	}
 }

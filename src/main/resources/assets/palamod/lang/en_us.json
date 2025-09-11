@@ -12,6 +12,11 @@
 
 	"item.palamod.paladium_hammer": "Paladium Hammer",
 
+	"item.palamod.paladium_helmet": "Paladium Helmet",
+	"item.palamod.paladium_chestplate": "Paladium Chestplate",
+	"item.palamod.paladium_leggings": "Paladium Leggings",
+	"item.palamod.paladium_boots": "Paladium Boots",
+
 	"block.palamod.paladium_block": "Paladium Block",
 	"block.palamod.paladium_block_stairs": "Paladium Block Stairs",
 	"block.palamod.paladium_block_slab": "Paladium Block Slab",
