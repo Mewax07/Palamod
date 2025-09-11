@@ -59,5 +59,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				.add(ModItems.PALADIUM_LEGGINGS)
 				.add(ModItems.PALADIUM_BOOTS)
 		;
+
+		getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+				.add(ModItems.PALADIUM_INGOT)
+		;
 	}
 }

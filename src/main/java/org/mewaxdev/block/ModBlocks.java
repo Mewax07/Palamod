@@ -1,6 +1,7 @@
 package org.mewaxdev.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -9,6 +10,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import org.mewaxdev.Palamod;
+import org.mewaxdev.block.custom.PaladiumCropBlock;
 
 public class ModBlocks {
 	public static final Block PALADIUM_BLOCK = registerBlock("paladium_block",
@@ -50,6 +52,15 @@ public class ModBlocks {
 							.requiresTool()
 							.sounds(BlockSoundGroup.DEEPSLATE)
 			));
+
+	public static final Block PALADIUM_CROP = registerBlockWithoutBlockItem("paladium_crop",
+			new PaladiumCropBlock(AbstractBlock.Settings.create().noCollision()
+					.ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY).mapColor(MapColor.GREEN)
+			));
+
+	private static Block registerBlockWithoutBlockItem(String name, Block block) {
+		return Registry.register(Registries.BLOCK, Identifier.of(Palamod.MOD_ID, name), block);
+	}
 
 	private static Block registerBlock(String name, Block block) {
 		regsiterBlockItem(name, block);

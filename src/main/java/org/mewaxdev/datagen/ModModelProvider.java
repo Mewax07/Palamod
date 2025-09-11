@@ -7,6 +7,7 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import org.mewaxdev.block.ModBlocks;
+import org.mewaxdev.block.custom.PaladiumCropBlock;
 import org.mewaxdev.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -24,6 +25,8 @@ public class ModModelProvider extends FabricModelProvider {
 
 		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALADIUM_ORE);
 		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PALADIUM_ORE);
+
+		blockStateModelGenerator.registerCrop(ModBlocks.PALADIUM_CROP, PaladiumCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
 	}
 
 	@Override

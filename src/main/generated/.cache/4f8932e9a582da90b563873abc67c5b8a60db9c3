@@ -1,7 +1,7 @@
-// 1.21.1	2025-09-11T12:44:21.921915115	Palamod/Block Loot Tables
-c14d484c2506e90063abcab2a869e00b9d5deec0 data/palamod/loot_table/blocks/deepslate_paladium_ore.json
-c884fbd0d7dd8a864a202d19f2023ef3f8f5a2fd data/palamod/loot_table/blocks/paladium_block_stairs.json
-c14d484c2506e90063abcab2a869e00b9d5deec0 data/palamod/loot_table/blocks/paladium_ore.json
-8353f92f36f7efceb49411ed5e70e1acc1e7221f data/palamod/loot_table/blocks/paladium_block_slab.json
-2a3490c7ecada44acdeafeed1eec2492757330cd data/palamod/loot_table/blocks/paladium_block.json
-cdc4c266e21d9355a90321601789a5f446fe0204 data/palamod/loot_table/blocks/raw_paladium_block.json
+// 1.21.1	2025-09-11T19:02:42.654067	Palamod/Block Loot Tables
+2a3490c7ecada44acdeafeed1eec2492757330cd data\palamod\loot_table\blocks\paladium_block.json
+cdc4c266e21d9355a90321601789a5f446fe0204 data\palamod\loot_table\blocks\raw_paladium_block.json
+c14d484c2506e90063abcab2a869e00b9d5deec0 data\palamod\loot_table\blocks\paladium_ore.json
+c884fbd0d7dd8a864a202d19f2023ef3f8f5a2fd data\palamod\loot_table\blocks\paladium_block_stairs.json
+8353f92f36f7efceb49411ed5e70e1acc1e7221f data\palamod\loot_table\blocks\paladium_block_slab.json
+c14d484c2506e90063abcab2a869e00b9d5deec0 data\palamod\loot_table\blocks\deepslate_paladium_ore.json

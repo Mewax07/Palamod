@@ -27,5 +27,7 @@
 	"block.palamod.deepslate_paladium_ore": "Paladium Deepslate Ore",
 
 	"itemgroup.palamod.palamod_items": "Palamod Items",
-	"itemgroup.palamod.palamod_blocks": "Palamod Blocks"
+	"itemgroup.palamod.palamod_blocks": "Palamod Blocks",
+
+	"trim_material.palamod.paladium": "Paladium Material"
 }

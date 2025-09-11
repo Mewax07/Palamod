@@ -5,18 +5,22 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.mewaxdev.Palamod;
+import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.item.custom.ChiselItem;
 import org.mewaxdev.item.custom.HammerItem;
 import org.mewaxdev.item.custom.ModArmorItem;
 
 public class ModItems {
-    public static final Item PALADIUM_INGOT = registerItem("paladium_ingot",
-			new Item(new Item.Settings()));
+	public static final Item PALADIUM_INGOT = registerItem("paladium_ingot",
+			new Item(new Item.Settings()
+			));
 	public static final Item RAW_PALADIUM = registerItem("raw_paladium",
-			new Item(new Item.Settings()));
+			new Item(new Item.Settings()
+			));
 
 	public static final Item PALADIUM_CHISEL = registerItem("paladium_chisel",
-			new ChiselItem(new Item.Settings().maxDamage(60)));
+			new ChiselItem(new Item.Settings().maxDamage(60)
+			));
 
 	public static final Item PALADIUM_SWORD = registerItem("paladium_sword",
 			new SwordItem(ModToolMaterials.PALADIUM, new Item.Settings()
@@ -61,11 +65,19 @@ public class ModItems {
 					.maxDamage(3380)
 			));
 
-    private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, Identifier.of(Palamod.MOD_ID, name), item);
-    }
+	public static final Item PALADIUM_SEEDS = registerItem("paladium_seeds",
+			new AliasedBlockItem(ModBlocks.PALADIUM_CROP, new Item.Settings()
+			));
 
-    public static void registerModItems() {
-        Palamod.LOGGER.info("Registering Palamod Items.");
-    }
+	public static final Item PALA_FLOWER = registerItem("pala_flower",
+			new Item(new Item.Settings()
+			));
+
+	private static Item registerItem(String name, Item item) {
+		return Registry.register(Registries.ITEM, Identifier.of(Palamod.MOD_ID, name), item);
+	}
+
+	public static void registerModItems() {
+		Palamod.LOGGER.info("Registering Palamod Items.");
+	}
 }

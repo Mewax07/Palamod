@@ -33,6 +33,8 @@ public class ModItemGroups {
 						entries.add(ModItems.PALADIUM_CHESTPLATE);
 						entries.add(ModItems.PALADIUM_LEGGINGS);
 						entries.add(ModItems.PALADIUM_BOOTS);
+
+						entries.add(ModItems.PALADIUM_SEEDS);
 					})
 					.build()
 	);
