@@ -2,6 +2,12 @@
   "values": [
     "palamod:paladium_ingot",
     "palamod:raw_paladium",
-    "palamod:paladium_chisel"
+    "palamod:paladium_hammer",
+    "palamod:paladium_sword",
+    "palamod:endium_ingot",
+    "palamod:endium_sword",
+    "palamod:paladium_chisel",
+    "palamod:pala_flower",
+    "palamod:paladium_seeds"
   ]
 }

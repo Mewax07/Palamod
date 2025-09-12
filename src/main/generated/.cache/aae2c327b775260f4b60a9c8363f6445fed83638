@@ -1,13 +1,13 @@
-// 1.21.1	2025-09-11T19:02:42.6560671	Palamod/Tags for minecraft:item
-ff5f97eb977389c81e684ef3b3177091940eca17 data\minecraft\tags\item\hoes.json
-d053e229ae649c84f4bd96c8753d8edca6847ae8 data\minecraft\tags\item\foot_armor.json
-0a8f146846e0749b0887d0d1685633cc14fbe055 data\minecraft\tags\item\head_armor.json
-4d53c3f9c3dd0190acc632653f0f799d740e5241 data\minecraft\tags\item\leg_armor.json
-419ed695fd3a8cfa2cae1471c714b98bdf00c8b2 data\minecraft\tags\item\trimmable_armor.json
-868008e613fad03e5cb9fde25bf42dbebae4dd0c data\minecraft\tags\item\swords.json
-371ba5de26c6dcc48a79755bb5e80604b2e30478 data\minecraft\tags\item\axes.json
-976441e2805cdcc70a89f092ef0c35206acda395 data\minecraft\tags\item\chest_armor.json
-41a1ec913af3d8988e020eb2d1b383c9a35c9586 data\palamod\tags\item\transformable_items.json
-df561046e0827d077fe1e086b254660bec1934e7 data\minecraft\tags\item\pickaxes.json
+// 1.21.1	2025-09-12T22:32:37.1252591	Palamod/Tags for minecraft:item
+11ffbf90ddaadfab520662f980b26d9c4d3a9705 data\minecraft\tags\item\hoes.json
+c98990c1416572ebfeec60bab861f331cf68405c data\minecraft\tags\item\foot_armor.json
+eab8d4f51a20c3ee7d98f1b05f67ad65a41e5f6e data\minecraft\tags\item\head_armor.json
+0f008591bac619889d69cdcd14b518bd331cfd75 data\minecraft\tags\item\leg_armor.json
+636388d21b2427c427271f50b0ad67d19cd32821 data\minecraft\tags\item\trimmable_armor.json
+4011bd1f895da504f5340501278309456628ef27 data\minecraft\tags\item\swords.json
+6702687bf83d15a714d64d86867c343830b642b6 data\minecraft\tags\item\axes.json
+6488fa64e54a507ae36cdbaa347973d0638fac0f data\minecraft\tags\item\chest_armor.json
+90680b90336c71751db9b99d77d0bd50b19f9453 data\palamod\tags\item\transformable_items.json
+962607b59ab42c5c3c37160a5a053a9e49c8b266 data\minecraft\tags\item\pickaxes.json
 e19562bdf26cb80b8147a86a3d4989118d559ce0 data\minecraft\tags\item\shovels.json
-b96e4366f48dd4c77de2492253abd7c1c1e7ee2b data\minecraft\tags\item\trim_materials.json
+141741417d551d95fe6a3b43109f960c1b5da654 data\minecraft\tags\item\trim_materials.json

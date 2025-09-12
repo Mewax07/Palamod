@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import org.mewaxdev.datagen.*;
-import org.mewaxdev.enchantment.ModEnchantments;
 import org.mewaxdev.trim.ModTrimMaterials;
 
 public class PalamodDataGenerator implements DataGeneratorEntrypoint {
@@ -23,7 +22,6 @@ public class PalamodDataGenerator implements DataGeneratorEntrypoint {
 
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::boostrap);
-		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 	}
 }

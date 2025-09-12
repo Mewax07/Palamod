@@ -3,18 +3,8 @@ package org.mewaxdev.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Item;
-import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.function.ApplyBonusLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.block.custom.PaladiumCropBlock;
@@ -29,17 +19,36 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
 	@Override
 	public void generate() {
-		addDrop(ModBlocks.PALADIUM_BLOCK);
-		addDrop(ModBlocks.PALADIUM_BLOCK_STAIRS);
-		addDrop(ModBlocks.PALADIUM_BLOCK_SLAB, slabDrops(ModBlocks.PALADIUM_BLOCK_SLAB));
+		for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
+			String name = mat.name().toLowerCase();
 
-		addDrop(ModBlocks.RAW_PALADIUM_BLOCK);
+			if (ModBlocks.hasBlock(name + "_block")) {
+				addDrop(ModBlocks.getBlock(name + "_block"));
+			}
 
-		addDrop(ModBlocks.PALADIUM_ORE, oreDrops(ModBlocks.PALADIUM_ORE, ModItems.RAW_PALADIUM));
-		addDrop(ModBlocks.DEEPSLATE_PALADIUM_ORE, oreDrops(ModBlocks.PALADIUM_ORE, ModItems.RAW_PALADIUM));
+			if (ModBlocks.hasBlock(name + "_block_stairs")) {
+				addDrop(ModBlocks.getBlock(name + "_block_stairs"));
+			}
 
-		BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.PALADIUM_CROP)
+			if (ModBlocks.hasBlock(name + "_block_slab")) {
+				addDrop(ModBlocks.getBlock(name + "_block_slab"), slabDrops(ModBlocks.getBlock(name + "_block_slab")));
+			}
+
+			if (ModBlocks.hasBlock("raw_" + name + "_block")) {
+				addDrop(ModBlocks.getBlock("raw_" + name + "_block"));
+			}
+
+			if (ModBlocks.hasBlock(name + "_ore")) {
+				addDrop(ModBlocks.getBlock(name + "_ore"), oreDrops(ModBlocks.getBlock(name + "_ore"), mat.RAW));
+			}
+			if (ModBlocks.hasBlock("deepslate_" + name + "_ore")) {
+				addDrop(ModBlocks.getBlock("deepslate_" + name + "_ore"), oreDrops(ModBlocks.getBlock("deepslate_" + name + "_ore"), mat.RAW));
+			}
+		}
+
+		BlockStatePropertyLootCondition.Builder matureCropCondition = BlockStatePropertyLootCondition.builder(ModBlocks.PALADIUM_CROP)
 				.properties(StatePredicate.Builder.create().exactMatch(PaladiumCropBlock.AGE, PaladiumCropBlock.MAX_AGE));
-		this.addDrop(ModBlocks.PALADIUM_CROP, this.cropDrops(ModBlocks.PALADIUM_CROP, ModItems.PALA_FLOWER, ModItems.PALADIUM_SEEDS, builder2));
+		this.addDrop(ModBlocks.PALADIUM_CROP,
+				this.cropDrops(ModBlocks.PALADIUM_CROP, ModItems.PALA_FLOWER, ModItems.PALADIUM_SEEDS, matureCropCondition));
 	}
 }

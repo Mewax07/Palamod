@@ -2,9 +2,7 @@
 	"required": true,
 	"package": "org.mewaxdev.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"BlockMixin"
-	],
+	"mixins": [],
 	"injectors": {
 		"defaultRequire": 1
 	},

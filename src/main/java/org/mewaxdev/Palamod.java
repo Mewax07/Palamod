@@ -5,7 +5,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import org.mewaxdev.block.ModBlocks;
-import org.mewaxdev.enchantment.ModEnchantmentEffects;
 import org.mewaxdev.item.ModItemGroups;
 import org.mewaxdev.item.ModItems;
 import org.mewaxdev.util.HammerUsageEvent;
@@ -21,8 +20,6 @@ public class Palamod implements ModInitializer {
         ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
-
-		ModEnchantmentEffects.registerEnchantmentEffects();
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 

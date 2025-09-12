@@ -1,6 +1,5 @@
 package org.mewaxdev.item.custom;
 
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -10,10 +9,6 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.World;
-import org.mewaxdev.item.ModArmorMaterials;
-
-import java.util.List;
-import java.util.Map;
 
 public class ModArmorItem extends ArmorItem {
     public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {

@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import org.jetbrains.annotations.Nullable;
 import org.mewaxdev.item.ModItems;
 import org.mewaxdev.util.ModTags;
 
@@ -17,51 +16,37 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+		for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
+			if (mat.INGOT != null) getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS).add(mat.INGOT);
+			if (mat.RAW != null) getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS).add(mat.RAW);
+			if (mat.HAMMER != null) getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS).add(mat.HAMMER);
+			if (mat.SWORD != null) getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS).add(mat.SWORD);
+
+			if (mat.SWORD != null) getOrCreateTagBuilder(ItemTags.SWORDS).add(mat.SWORD);
+			if (mat.PICKAXE != null) getOrCreateTagBuilder(ItemTags.PICKAXES).add(mat.PICKAXE);
+			if (mat.AXE != null) getOrCreateTagBuilder(ItemTags.AXES).add(mat.AXE);
+			if (mat.SHOVEL != null) getOrCreateTagBuilder(ItemTags.SHOVELS).add(mat.SHOVEL);
+			if (mat.HOE != null) getOrCreateTagBuilder(ItemTags.HOES).add(mat.HOE);
+
+			if (mat.HELMET != null) getOrCreateTagBuilder(ItemTags.HEAD_ARMOR).add(mat.HELMET);
+			if (mat.CHESTPLATE != null) getOrCreateTagBuilder(ItemTags.CHEST_ARMOR).add(mat.CHESTPLATE);
+			if (mat.LEGGINGS != null) getOrCreateTagBuilder(ItemTags.LEG_ARMOR).add(mat.LEGGINGS);
+			if (mat.BOOTS != null) getOrCreateTagBuilder(ItemTags.FOOT_ARMOR).add(mat.BOOTS);
+
+			if (mat.HELMET != null || mat.CHESTPLATE != null || mat.LEGGINGS != null || mat.BOOTS != null) {
+				var builder = getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR);
+				if (mat.HELMET != null) builder.add(mat.HELMET);
+				if (mat.CHESTPLATE != null) builder.add(mat.CHESTPLATE);
+				if (mat.LEGGINGS != null) builder.add(mat.LEGGINGS);
+				if (mat.BOOTS != null) builder.add(mat.BOOTS);
+			}
+
+			if (mat.INGOT != null) getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(mat.INGOT);
+		}
+
 		getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS)
-				.add(ModItems.PALADIUM_INGOT)
-				.add(ModItems.RAW_PALADIUM)
-
 				.add(ModItems.PALADIUM_CHISEL)
-		;
-
-		getOrCreateTagBuilder(ItemTags.SWORDS)
-				.add(ModItems.PALADIUM_SWORD)
-		;
-		getOrCreateTagBuilder(ItemTags.PICKAXES)
-				.add(ModItems.PALADIUM_PICKAXE)
-		;
-		getOrCreateTagBuilder(ItemTags.AXES)
-				.add(ModItems.PALADIUM_AXE)
-		;
-		getOrCreateTagBuilder(ItemTags.SHOVELS)
-				.add(ModItems.PALADIUM_SHOVEL)
-		;
-		getOrCreateTagBuilder(ItemTags.HOES)
-				.add(ModItems.PALADIUM_HOE)
-		;
-
-		getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
-				.add(ModItems.PALADIUM_HELMET)
-		;
-		getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
-				.add(ModItems.PALADIUM_CHESTPLATE)
-		;
-		getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
-				.add(ModItems.PALADIUM_LEGGINGS)
-		;
-		getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
-				.add(ModItems.PALADIUM_BOOTS)
-		;
-
-		getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
-				.add(ModItems.PALADIUM_HELMET)
-				.add(ModItems.PALADIUM_CHESTPLATE)
-				.add(ModItems.PALADIUM_LEGGINGS)
-				.add(ModItems.PALADIUM_BOOTS)
-		;
-
-		getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
-				.add(ModItems.PALADIUM_INGOT)
-		;
+				.add(ModItems.PALA_FLOWER)
+				.add(ModItems.PALADIUM_SEEDS);
 	}
 }

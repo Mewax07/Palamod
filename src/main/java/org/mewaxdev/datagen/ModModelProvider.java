@@ -31,22 +31,25 @@ public class ModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-		itemModelGenerator.register(ModItems.PALADIUM_INGOT, Models.GENERATED);
-		itemModelGenerator.register(ModItems.RAW_PALADIUM, Models.GENERATED);
+		for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
+			if (mat.INGOT != null) itemModelGenerator.register(mat.INGOT, Models.GENERATED);
+			if (mat.RAW != null) itemModelGenerator.register(mat.RAW, Models.GENERATED);
 
+			if (mat.SWORD != null) itemModelGenerator.register(mat.SWORD, Models.HANDHELD);
+			if (mat.PICKAXE != null) itemModelGenerator.register(mat.PICKAXE, Models.HANDHELD);
+			if (mat.AXE != null) itemModelGenerator.register(mat.AXE, Models.HANDHELD);
+			if (mat.SHOVEL != null) itemModelGenerator.register(mat.SHOVEL, Models.HANDHELD);
+			if (mat.HOE != null) itemModelGenerator.register(mat.HOE, Models.HANDHELD);
+
+			if (mat.HAMMER != null) itemModelGenerator.register(mat.HAMMER, Models.HANDHELD);
+
+			if (mat.HELMET != null) itemModelGenerator.registerArmor((ArmorItem) mat.HELMET);
+			if (mat.CHESTPLATE != null) itemModelGenerator.registerArmor((ArmorItem) mat.CHESTPLATE);
+			if (mat.LEGGINGS != null) itemModelGenerator.registerArmor((ArmorItem) mat.LEGGINGS);
+			if (mat.BOOTS != null) itemModelGenerator.registerArmor((ArmorItem) mat.BOOTS);
+		}
+
+		itemModelGenerator.register(ModItems.PALA_FLOWER, Models.GENERATED);
 		itemModelGenerator.register(ModItems.PALADIUM_CHISEL, Models.GENERATED);
-
-		itemModelGenerator.register(ModItems.PALADIUM_SWORD, Models.HANDHELD);
-		itemModelGenerator.register(ModItems.PALADIUM_PICKAXE, Models.HANDHELD);
-		itemModelGenerator.register(ModItems.PALADIUM_AXE, Models.HANDHELD);
-		itemModelGenerator.register(ModItems.PALADIUM_SHOVEL, Models.HANDHELD);
-		itemModelGenerator.register(ModItems.PALADIUM_HOE, Models.HANDHELD);
-
-		itemModelGenerator.register(ModItems.PALADIUM_HAMMER, Models.HANDHELD);
-
-		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_HELMET);
-		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_CHESTPLATE);
-		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_LEGGINGS);
-		itemModelGenerator.registerArmor((ArmorItem) ModItems.PALADIUM_BOOTS);
 	}
 }

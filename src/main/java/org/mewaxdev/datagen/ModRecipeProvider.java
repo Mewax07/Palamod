@@ -4,10 +4,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.item.ModItems;
@@ -22,21 +21,52 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 	@Override
 	public void generate(RecipeExporter exporter) {
-		List<ItemConvertible> PALADIUM_SMELTABLES = List.of(ModItems.RAW_PALADIUM, ModBlocks.PALADIUM_ORE, ModBlocks.DEEPSLATE_PALADIUM_ORE);
+		List<ModItems.MaterialItems> materials = ModItems.getAllMaterials();
 
-		offerSmelting(exporter, PALADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.PALADIUM_INGOT, 0.25f, 200, "paladium_ingot");
-		offerBlasting(exporter, PALADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.PALADIUM_INGOT, 0.5f, 100, "paladium_ingot");
+		for (ModItems.MaterialItems mat : materials) {
+			String name = getMaterialName(mat);
 
-		offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.PALADIUM_INGOT, RecipeCategory.DECORATIONS, ModBlocks.PALADIUM_BLOCK);
-		offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_PALADIUM, RecipeCategory.DECORATIONS, ModBlocks.RAW_PALADIUM_BLOCK);
+			if (mat.RAW != null) {
+				offerSmelting(exporter, List.of(mat.RAW), RecipeCategory.MISC, mat.INGOT, 0.25f, 200, name + "_ingot");
+				offerBlasting(exporter, List.of(mat.RAW), RecipeCategory.MISC, mat.INGOT, 0.5f, 100, name + "_ingot");
+			}
+
+			if (ModBlocks.hasBlock(name + "_block")) {
+				offerReversibleCompactingRecipes(exporter,
+						RecipeCategory.BUILDING_BLOCKS, mat.INGOT,
+						RecipeCategory.DECORATIONS, ModBlocks.getBlock(name + "_block"));
+			}
+
+			if (mat.RAW != null && ModBlocks.hasBlock("raw_" + name + "_block")) {
+				offerReversibleCompactingRecipes(exporter,
+						RecipeCategory.BUILDING_BLOCKS, mat.RAW,
+						RecipeCategory.DECORATIONS, ModBlocks.getBlock("raw_" + name + "_block"));
+			}
+
+			if (mat.HAMMER != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.HAMMER)
+						.pattern("PPP")
+						.pattern("PPP")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+						.offerTo(exporter);
+			}
+		}
 
 		ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PALADIUM_CHISEL)
 				.pattern(" P")
 				.pattern("S ")
-				.input('P', ModItems.PALADIUM_INGOT)
+				.input('P', ModItems.PALADIUM.INGOT)
 				.input('S', Items.STICK)
-				.criterion(hasItem(ModItems.PALADIUM_INGOT), conditionsFromItem(ModItems.PALADIUM_INGOT))
+				.criterion(hasItem(ModItems.PALADIUM.INGOT), conditionsFromItem(ModItems.PALADIUM.INGOT))
 				.criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
 				.offerTo(exporter);
+	}
+
+	private String getMaterialName(ModItems.MaterialItems mat) {
+		return Registries.ITEM.getId(mat.INGOT).getPath().replace("_ingot", "");
 	}
 }

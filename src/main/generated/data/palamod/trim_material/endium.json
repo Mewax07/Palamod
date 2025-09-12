@@ -1,0 +1,9 @@
+{
+  "asset_name": "endium",
+  "description": {
+    "color": "#00FFCC",
+    "translate": "trim_material.palamod.endium"
+  },
+  "ingredient": "palamod:endium_ingot",
+  "item_model_index": 1.0
+}

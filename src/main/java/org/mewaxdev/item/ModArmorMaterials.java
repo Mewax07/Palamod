@@ -23,8 +23,19 @@ public class ModArmorMaterials {
 				map.put(ArmorItem.Type.LEGGINGS, 5);
 				map.put(ArmorItem.Type.BOOTS, 4);
 				map.put(ArmorItem.Type.BODY, 6);
-			}), 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> Ingredient.ofItems(ModItems.PALADIUM_INGOT),
+			}), 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> Ingredient.ofItems(ModItems.PALADIUM.INGOT),
 					List.of(new ArmorMaterial.Layer(Identifier.of(Palamod.MOD_ID, "paladium_armor"))), 0, 0
+	));
+
+	public static final RegistryEntry<ArmorMaterial> ENDIUM_ARMOR_MATERIAL = registerArmorMaterial("endium_armor",
+			() -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+				map.put(ArmorItem.Type.HELMET, 5);
+				map.put(ArmorItem.Type.CHESTPLATE, 6);
+				map.put(ArmorItem.Type.LEGGINGS, 5);
+				map.put(ArmorItem.Type.BOOTS, 4);
+				map.put(ArmorItem.Type.BODY, 6);
+			}), 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> Ingredient.ofItems(ModItems.ENDIUM.INGOT),
+					List.of(new ArmorMaterial.Layer(Identifier.of(Palamod.MOD_ID, "endium_armor"))), 0, 0
 	));
 
 	public static RegistryEntry<ArmorMaterial> registerArmorMaterial(String name, Supplier<ArmorMaterial> material) {
