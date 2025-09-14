@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_green_paladium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "palamod:green_paladium_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "palamod:green_paladium_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_green_paladium_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "palamod:green_paladium_shovel"
+    ]
+  }
+}

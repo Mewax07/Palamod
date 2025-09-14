@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "palamod:block/kiwano_stage0"
+    },
+    "age=1": {
+      "model": "palamod:block/kiwano_stage1"
+    },
+    "age=2": {
+      "model": "palamod:block/kiwano_stage2"
+    },
+    "age=3": {
+      "model": "palamod:block/kiwano_stage3"
+    },
+    "age=4": {
+      "model": "palamod:block/kiwano_stage4"
+    }
+  }
+}

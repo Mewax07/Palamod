@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mixed_endium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "palamod:mixed_endium_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "palamod:mixed_endium_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mixed_endium_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "palamod:mixed_endium_chestplate"
+    ]
+  }
+}

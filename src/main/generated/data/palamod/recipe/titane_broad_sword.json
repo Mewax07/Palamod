@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "palamod:titane_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " PP",
+    " PP",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "palamod:titane_broad_sword"
+  }
+}

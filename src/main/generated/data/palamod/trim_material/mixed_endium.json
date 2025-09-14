@@ -1,0 +1,8 @@
+{
+  "asset_name": "mixed_endium",
+  "description": {
+    "translate": "trim_material.palamod.mixed_endium"
+  },
+  "ingredient": "palamod:mixed_endium_ingot",
+  "item_model_index": 1.0
+}
