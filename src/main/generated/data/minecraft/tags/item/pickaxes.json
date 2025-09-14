@@ -1,6 +1,9 @@
 {
   "values": [
+    "palamod:amethyst_pickaxe",
+    "palamod:titane_pickaxe",
     "palamod:paladium_pickaxe",
+    "palamod:green_paladium_pickaxe",
     "palamod:endium_pickaxe"
   ]
 }

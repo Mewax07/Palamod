@@ -10,10 +10,17 @@ import org.mewaxdev.util.ModTags;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
+	AMETHYST(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
+			1999, 5.0f, 3.0f, 20, () -> Ingredient.ofItems(ModItems.AMETHYST.INGOT)),
+	TITANE(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
+			2999, 5.5f, 3.5f, 20, () -> Ingredient.ofItems(ModItems.TITANE.INGOT)),
 	PALADIUM(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
 			4999, 8.0f, 6.0f, 20, () -> Ingredient.ofItems(ModItems.PALADIUM.INGOT)),
+	GREEN_PALADIUM(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
+			4999, 8.0f, 6.0f, 20, () -> Ingredient.ofItems(ModItems.GREEN_PALADIUM.INGOT)),
 	ENDIUM(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
-			4999, 9.0f, 7.0f, 22, () -> Ingredient.ofItems(ModItems.ENDIUM.INGOT));
+			4999, 9.3f, 7.3f, 22, () -> Ingredient.ofItems(ModItems.ENDIUM.INGOT)),
+	;
 
 	private final TagKey<Block> inverseTag;
 	private final int itemDurability;

@@ -1,0 +1,8 @@
+{
+  "asset_name": "titane",
+  "description": {
+    "translate": "trim_material.palamod.titane"
+  },
+  "ingredient": "palamod:titane_ingot",
+  "item_model_index": 1.0
+}

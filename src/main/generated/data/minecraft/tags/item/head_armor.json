@@ -1,6 +1,10 @@
 {
   "values": [
+    "palamod:amethyst_helmet",
+    "palamod:titane_helmet",
     "palamod:paladium_helmet",
+    "palamod:green_paladium_helmet",
+    "palamod:mixed_endium_helmet",
     "palamod:endium_helmet"
   ]
 }

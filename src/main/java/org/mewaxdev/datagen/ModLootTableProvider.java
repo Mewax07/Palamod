@@ -2,12 +2,12 @@ package org.mewaxdev.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 import org.mewaxdev.block.ModBlocks;
-import org.mewaxdev.block.custom.PaladiumCropBlock;
+import org.mewaxdev.block.custom.ModCropBlock;
 import org.mewaxdev.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -38,17 +38,25 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 				addDrop(ModBlocks.getBlock("raw_" + name + "_block"));
 			}
 
+			Item withoutSilkTouch = mat.RAW != null ? mat.RAW : mat.INGOT;
 			if (ModBlocks.hasBlock(name + "_ore")) {
-				addDrop(ModBlocks.getBlock(name + "_ore"), oreDrops(ModBlocks.getBlock(name + "_ore"), mat.RAW));
+				addDrop(ModBlocks.getBlock(name + "_ore"), oreDrops(ModBlocks.getBlock(name + "_ore"), withoutSilkTouch));
 			}
 			if (ModBlocks.hasBlock("deepslate_" + name + "_ore")) {
-				addDrop(ModBlocks.getBlock("deepslate_" + name + "_ore"), oreDrops(ModBlocks.getBlock("deepslate_" + name + "_ore"), mat.RAW));
+				addDrop(ModBlocks.getBlock("deepslate_" + name + "_ore"), oreDrops(ModBlocks.getBlock("deepslate_" + name + "_ore"), withoutSilkTouch));
 			}
 		}
 
-		BlockStatePropertyLootCondition.Builder matureCropCondition = BlockStatePropertyLootCondition.builder(ModBlocks.PALADIUM_CROP)
-				.properties(StatePredicate.Builder.create().exactMatch(PaladiumCropBlock.AGE, PaladiumCropBlock.MAX_AGE));
-		this.addDrop(ModBlocks.PALADIUM_CROP,
-				this.cropDrops(ModBlocks.PALADIUM_CROP, ModItems.PALA_FLOWER, ModItems.PALADIUM_SEEDS, matureCropCondition));
+		ModCropBlock kiwanoCrop = (ModCropBlock) ModBlocks.KIWANO_CROP;
+		BlockStatePropertyLootCondition.Builder matureCropConditionKiwano = BlockStatePropertyLootCondition.builder(ModBlocks.KIWANO_CROP)
+				.properties(StatePredicate.Builder.create().exactMatch(kiwanoCrop.getAgeProperty(), kiwanoCrop.getMaxAge()));
+		this.addDrop(ModBlocks.KIWANO_CROP,
+				this.cropDrops(ModBlocks.KIWANO_CROP, ModItems.KIWANO, ModItems.KIWANO_SEEDS, matureCropConditionKiwano));
+
+		ModCropBlock orangeblueCrop = (ModCropBlock) ModBlocks.ORANGEBLUE_CROP;
+		BlockStatePropertyLootCondition.Builder matureCropConditionOrangeblue = BlockStatePropertyLootCondition.builder(ModBlocks.ORANGEBLUE_CROP)
+				.properties(StatePredicate.Builder.create().exactMatch(orangeblueCrop.getAgeProperty(), orangeblueCrop.getMaxAge()));
+		this.addDrop(ModBlocks.ORANGEBLUE_CROP,
+				this.cropDrops(ModBlocks.ORANGEBLUE_CROP, ModItems.ORANGEBLUE, ModItems.ORANGEBLUE_SEEDS, matureCropConditionOrangeblue));
 	}
 }

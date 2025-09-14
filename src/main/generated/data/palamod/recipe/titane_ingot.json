@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "palamod:titane_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "palamod:titane_ingot"
+  }
+}

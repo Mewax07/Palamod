@@ -6,8 +6,9 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
 import org.mewaxdev.block.ModBlocks;
-import org.mewaxdev.block.custom.PaladiumCropBlock;
+import org.mewaxdev.block.custom.ModCropBlock;
 import org.mewaxdev.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -17,16 +18,22 @@ public class ModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-		BlockStateModelGenerator.BlockTexturePool paladiumBlockPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PALADIUM_BLOCK);
-		paladiumBlockPool.stairs(ModBlocks.PALADIUM_BLOCK_STAIRS);
-		paladiumBlockPool.slab(ModBlocks.PALADIUM_BLOCK_SLAB);
+		for (ModBlocks.MaterialBlocks mat : ModBlocks.getAllMaterials()) {
+			if (mat.BLOCK != null) {
+				BlockStateModelGenerator.BlockTexturePool pool = blockStateModelGenerator.registerCubeAllModelTexturePool(mat.BLOCK);
 
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PALADIUM_BLOCK);
+				if (mat.STAIRS != null) pool.stairs(mat.STAIRS);
+				if (mat.SLAB != null) pool.slab(mat.SLAB);
+			}
 
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALADIUM_ORE);
-		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PALADIUM_ORE);
+			if (mat.RAW_BLOCK != null) blockStateModelGenerator.registerSimpleCubeAll(mat.RAW_BLOCK);
+			if (mat.ORE != null) blockStateModelGenerator.registerSimpleCubeAll(mat.ORE);
+			if (mat.DEEPSLATE_ORE != null) blockStateModelGenerator.registerSimpleCubeAll(mat.DEEPSLATE_ORE);
+		}
 
-		blockStateModelGenerator.registerCrop(ModBlocks.PALADIUM_CROP, PaladiumCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
+		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WARNING);
+		blockStateModelGenerator.registerCrop(ModBlocks.KIWANO_CROP, ModCropBlock.AGE, 0, 1, 2, 3, 4);
+		blockStateModelGenerator.registerCrop(ModBlocks.ORANGEBLUE_CROP, ModCropBlock.AGE, 0, 1, 2, 3, 4);
 	}
 
 	@Override
@@ -36,6 +43,8 @@ public class ModModelProvider extends FabricModelProvider {
 			if (mat.RAW != null) itemModelGenerator.register(mat.RAW, Models.GENERATED);
 
 			if (mat.SWORD != null) itemModelGenerator.register(mat.SWORD, Models.HANDHELD);
+			if (mat.BROAD_SWORD != null) itemModelGenerator.register(mat.BROAD_SWORD, Models.HANDHELD);
+			if (mat.FAST_SWORD != null) itemModelGenerator.register(mat.FAST_SWORD, Models.HANDHELD);
 			if (mat.PICKAXE != null) itemModelGenerator.register(mat.PICKAXE, Models.HANDHELD);
 			if (mat.AXE != null) itemModelGenerator.register(mat.AXE, Models.HANDHELD);
 			if (mat.SHOVEL != null) itemModelGenerator.register(mat.SHOVEL, Models.HANDHELD);
@@ -47,9 +56,14 @@ public class ModModelProvider extends FabricModelProvider {
 			if (mat.CHESTPLATE != null) itemModelGenerator.registerArmor((ArmorItem) mat.CHESTPLATE);
 			if (mat.LEGGINGS != null) itemModelGenerator.registerArmor((ArmorItem) mat.LEGGINGS);
 			if (mat.BOOTS != null) itemModelGenerator.registerArmor((ArmorItem) mat.BOOTS);
+
+			for (Item custom : mat.CUSTOM_ITEMS.values()) {
+				itemModelGenerator.register(custom, Models.GENERATED);
+			}
 		}
 
-		itemModelGenerator.register(ModItems.PALA_FLOWER, Models.GENERATED);
-		itemModelGenerator.register(ModItems.PALADIUM_CHISEL, Models.GENERATED);
+		for (Item custom : ModItems.NON_CLASS_REGISTERED_ITEM.values()) {
+			itemModelGenerator.register(custom, Models.GENERATED);
+		}
 	}
 }

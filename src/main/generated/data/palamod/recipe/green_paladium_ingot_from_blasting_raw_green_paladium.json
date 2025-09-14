@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "group": "green_paladium_ingot",
+  "ingredient": {
+    "item": "palamod:raw_green_paladium"
+  },
+  "result": {
+    "id": "palamod:green_paladium_ingot"
+  }
+}

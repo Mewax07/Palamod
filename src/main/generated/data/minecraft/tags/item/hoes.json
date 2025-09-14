@@ -1,6 +1,9 @@
 {
   "values": [
+    "palamod:amethyst_hoe",
+    "palamod:titane_hoe",
     "palamod:paladium_hoe",
+    "palamod:green_paladium_hoe",
     "palamod:endium_hoe"
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "green_paladium_ingot",
+  "ingredient": {
+    "item": "palamod:raw_green_paladium"
+  },
+  "result": {
+    "id": "palamod:green_paladium_ingot"
+  }
+}

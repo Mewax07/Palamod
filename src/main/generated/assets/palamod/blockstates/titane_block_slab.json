@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "palamod:block/titane_block_slab"
+    },
+    "type=double": {
+      "model": "palamod:block/titane_block"
+    },
+    "type=top": {
+      "model": "palamod:block/titane_block_slab_top"
+    }
+  }
+}

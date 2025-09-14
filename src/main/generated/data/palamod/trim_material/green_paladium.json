@@ -1,0 +1,8 @@
+{
+  "asset_name": "green_paladium",
+  "description": {
+    "translate": "trim_material.palamod.green_paladium"
+  },
+  "ingredient": "palamod:green_paladium_ingot",
+  "item_model_index": 1.0
+}

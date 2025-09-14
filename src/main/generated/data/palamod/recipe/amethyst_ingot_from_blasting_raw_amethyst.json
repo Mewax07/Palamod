@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "group": "amethyst_ingot",
+  "ingredient": {
+    "item": "palamod:raw_amethyst"
+  },
+  "result": {
+    "id": "palamod:amethyst_ingot"
+  }
+}

@@ -1,13 +1,13 @@
-// 1.21.1	2025-09-12T22:32:37.1252591	Palamod/Tags for minecraft:item
-11ffbf90ddaadfab520662f980b26d9c4d3a9705 data\minecraft\tags\item\hoes.json
-c98990c1416572ebfeec60bab861f331cf68405c data\minecraft\tags\item\foot_armor.json
-eab8d4f51a20c3ee7d98f1b05f67ad65a41e5f6e data\minecraft\tags\item\head_armor.json
-0f008591bac619889d69cdcd14b518bd331cfd75 data\minecraft\tags\item\leg_armor.json
-636388d21b2427c427271f50b0ad67d19cd32821 data\minecraft\tags\item\trimmable_armor.json
-4011bd1f895da504f5340501278309456628ef27 data\minecraft\tags\item\swords.json
-6702687bf83d15a714d64d86867c343830b642b6 data\minecraft\tags\item\axes.json
-6488fa64e54a507ae36cdbaa347973d0638fac0f data\minecraft\tags\item\chest_armor.json
-90680b90336c71751db9b99d77d0bd50b19f9453 data\palamod\tags\item\transformable_items.json
-962607b59ab42c5c3c37160a5a053a9e49c8b266 data\minecraft\tags\item\pickaxes.json
-e19562bdf26cb80b8147a86a3d4989118d559ce0 data\minecraft\tags\item\shovels.json
-141741417d551d95fe6a3b43109f960c1b5da654 data\minecraft\tags\item\trim_materials.json
+// 1.21.1	2025-09-14T16:33:48.0672725	Palamod/Tags for minecraft:item
+6a5124ec2b93ddc884c107dc6eb018735bb4cc3b data\minecraft\tags\item\hoes.json
+606c4766b64a060c570d8a91ad6b19e9ea19c024 data\minecraft\tags\item\foot_armor.json
+1b3c826985276d7fe5287ee23242d837669b45c0 data\minecraft\tags\item\head_armor.json
+5a818eddb1ef788f3c1d3d4371420aff02a14e7e data\minecraft\tags\item\leg_armor.json
+21ffe182e1a32254e2f34c1eaf3a97af8807dc00 data\minecraft\tags\item\trimmable_armor.json
+8aa04f78abd3bda7cb36625cc57eee09c71107de data\minecraft\tags\item\swords.json
+1a21766ceba4e6ab69e6569ebeb9109b3094a263 data\minecraft\tags\item\axes.json
+78c911a70a41ee6ca684adb731e77a127f5b8f72 data\minecraft\tags\item\chest_armor.json
+37f8b54c7d62ebc373cf01632ebfc2dc9cba83c7 data\palamod\tags\item\transformable_items.json
+9c373b3b822ca6be6f6ef4715cb3ecf12cc3f3a5 data\minecraft\tags\item\pickaxes.json
+b6f9f90c16ea80699cce59f8e9a9fa4a8bf975f8 data\minecraft\tags\item\shovels.json
+4d228b02470c5caf41e863c43834627b4dc26771 data\minecraft\tags\item\trim_materials.json

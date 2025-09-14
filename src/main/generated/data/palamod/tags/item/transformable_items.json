@@ -1,13 +1,21 @@
 {
   "values": [
+    "palamod:amethyst_ingot",
+    "palamod:raw_amethyst",
+    "palamod:amethyst_hammer",
+    "palamod:titane_ingot",
+    "palamod:raw_titane",
+    "palamod:titane_hammer",
     "palamod:paladium_ingot",
     "palamod:raw_paladium",
     "palamod:paladium_hammer",
-    "palamod:paladium_sword",
+    "palamod:green_paladium_ingot",
+    "palamod:raw_green_paladium",
+    "palamod:mixed_endium_ingot",
     "palamod:endium_ingot",
-    "palamod:endium_sword",
+    "palamod:endium_fragment",
     "palamod:paladium_chisel",
-    "palamod:pala_flower",
-    "palamod:paladium_seeds"
+    "palamod:orangeblue",
+    "palamod:kiwano"
   ]
 }

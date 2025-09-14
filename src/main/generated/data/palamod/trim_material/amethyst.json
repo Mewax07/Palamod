@@ -1,0 +1,8 @@
+{
+  "asset_name": "amethyst",
+  "description": {
+    "translate": "trim_material.palamod.amethyst"
+  },
+  "ingredient": "palamod:amethyst_ingot",
+  "item_model_index": 1.0
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_titane": {
+      "conditions": {
+        "items": [
+          {
+            "items": "palamod:raw_titane"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "palamod:raw_titane_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_titane"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "palamod:raw_titane_block"
+    ]
+  }
+}

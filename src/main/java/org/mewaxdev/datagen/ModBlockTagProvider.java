@@ -16,30 +16,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-				.add(ModBlocks.PALADIUM_BLOCK)
-				.add(ModBlocks.PALADIUM_BLOCK_STAIRS)
-				.add(ModBlocks.PALADIUM_BLOCK_SLAB)
+		for (ModBlocks.MaterialBlocks mat : ModBlocks.getAllMaterials()) {
+			if (mat.BLOCK != null) getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(mat.BLOCK);
+			if (mat.STAIRS != null) getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(mat.STAIRS);
+			if (mat.SLAB != null) getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(mat.SLAB);
+			if (mat.RAW_BLOCK != null) getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(mat.RAW_BLOCK);
+			if (mat.ORE != null) getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(mat.ORE);
+			if (mat.DEEPSLATE_ORE != null) getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(mat.DEEPSLATE_ORE);
 
-				.add(ModBlocks.RAW_PALADIUM_BLOCK)
-
-				.add(ModBlocks.PALADIUM_ORE)
-				.add(ModBlocks.DEEPSLATE_PALADIUM_ORE)
-		;
-
-		getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-				.add(ModBlocks.PALADIUM_BLOCK)
-				.add(ModBlocks.PALADIUM_BLOCK_STAIRS)
-				.add(ModBlocks.PALADIUM_BLOCK_SLAB)
-
-				.add(ModBlocks.RAW_PALADIUM_BLOCK)
-
-				.add(ModBlocks.PALADIUM_ORE)
-				.add(ModBlocks.DEEPSLATE_PALADIUM_ORE)
-		;
+			if (mat.BLOCK != null) getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(mat.BLOCK);
+			if (mat.STAIRS != null) getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(mat.STAIRS);
+			if (mat.SLAB != null) getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(mat.SLAB);
+			if (mat.RAW_BLOCK != null) getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(mat.RAW_BLOCK);
+			if (mat.ORE != null) getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(mat.ORE);
+			if (mat.DEEPSLATE_ORE != null) getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(mat.DEEPSLATE_ORE);
+		}
 
 		getOrCreateTagBuilder(ModTags.Blocks.NEEDS_PALADIUM_TOOL)
-				.addTag(BlockTags.NEEDS_IRON_TOOL)
-		;
+				.addTag(BlockTags.NEEDS_IRON_TOOL);
 	}
 }

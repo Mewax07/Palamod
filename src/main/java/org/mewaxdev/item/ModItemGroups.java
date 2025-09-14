@@ -1,6 +1,8 @@
 package org.mewaxdev.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -10,7 +12,7 @@ import net.minecraft.util.Identifier;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.block.ModBlocks;
 
-import java.util.List;
+import java.util.Map;
 
 public class ModItemGroups {
 	public static final ItemGroup PALAMOD_ITEMS_GROUP = Registry.register(
@@ -20,17 +22,13 @@ public class ModItemGroups {
 					.icon(() -> new ItemStack(ModItems.PALADIUM.INGOT))
 					.displayName(Text.translatable("itemgroup.palamod.palamod_items"))
 					.entries((displayContext, entries) -> {
-
-						List<ModItems.MaterialItems> allMaterials = List.of(
-								ModItems.PALADIUM,
-								ModItems.ENDIUM
-						);
-
-						for (ModItems.MaterialItems mat : allMaterials) {
+						for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
 							if (mat.INGOT != null) entries.add(mat.INGOT);
 							if (mat.RAW != null) entries.add(mat.RAW);
 
 							if (mat.SWORD != null) entries.add(mat.SWORD);
+							if (mat.BROAD_SWORD != null) entries.add(mat.BROAD_SWORD);
+							if (mat.FAST_SWORD != null) entries.add(mat.FAST_SWORD);
 							if (mat.PICKAXE != null) entries.add(mat.PICKAXE);
 							if (mat.AXE != null) entries.add(mat.AXE);
 							if (mat.SHOVEL != null) entries.add(mat.SHOVEL);
@@ -43,24 +41,33 @@ public class ModItemGroups {
 							if (mat.BOOTS != null) entries.add(mat.BOOTS);
 						}
 
-						entries.add(ModItems.PALADIUM_SEEDS);
-						entries.add(ModItems.PALA_FLOWER);
-						entries.add(ModItems.PALADIUM_CHISEL);
+						for (Item items : ModItems.NON_CLASS_REGISTERED_ITEM.values()) {
+							entries.add(items);
+						}
 					})
 					.build()
 	);
 
-	public static final ItemGroup PALAMOD_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
+	public static final ItemGroup PALAMOD_BLOCKS_GROUP = Registry.register(
+			Registries.ITEM_GROUP,
 			Identifier.of(Palamod.MOD_ID, "palamod_blocks"),
-			FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.PALADIUM_BLOCK))
+			FabricItemGroup.builder()
+					.icon(() -> new ItemStack(ModBlocks.PALADIUM.BLOCK))
 					.displayName(Text.translatable("itemgroup.palamod.palamod_blocks"))
 					.entries((displayContext, entries) -> {
-						entries.add(ModBlocks.PALADIUM_BLOCK);
-						entries.add(ModBlocks.PALADIUM_BLOCK_STAIRS);
-						entries.add(ModBlocks.PALADIUM_BLOCK_SLAB);
-						entries.add(ModBlocks.RAW_PALADIUM_BLOCK);
-						entries.add(ModBlocks.PALADIUM_ORE);
-						entries.add(ModBlocks.DEEPSLATE_PALADIUM_ORE);
+						for (ModBlocks.MaterialBlocks mat : ModBlocks.getAllMaterials()) {
+							if (mat.BLOCK != null) entries.add(mat.BLOCK);
+							if (mat.STAIRS != null) entries.add(mat.STAIRS);
+							if (mat.SLAB != null) entries.add(mat.SLAB);
+
+							if (mat.RAW_BLOCK != null) entries.add(mat.RAW_BLOCK);
+							if (mat.ORE != null) entries.add(mat.ORE);
+							if (mat.DEEPSLATE_ORE != null) entries.add(mat.DEEPSLATE_ORE);
+						}
+
+						for (Block block : ModBlocks.NON_CLASS_REGISTERED_BLOCKS.values()) {
+							entries.add(block);
+						}
 					})
 					.build()
 	);

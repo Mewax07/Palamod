@@ -4,10 +4,14 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.random.Random;
 import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.item.ModItemGroups;
 import org.mewaxdev.item.ModItems;
 import org.mewaxdev.util.HammerUsageEvent;
+import org.mewaxdev.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,9 +25,24 @@ public class Palamod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 
+		ModWorldGeneration.generateModWorldGen();
+
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 
-		CompostingChanceRegistry.INSTANCE.add(ModItems.PALA_FLOWER, 0.5f);
-		CompostingChanceRegistry.INSTANCE.add(ModItems.PALADIUM_SEEDS, 0.25f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.KIWANO, 0.9f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.KIWANO_SEEDS, 0.5f);
+
+		CompostingChanceRegistry.INSTANCE.add(ModItems.ORANGEBLUE, 0.80f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.ORANGEBLUE_SEEDS, 0.15f);
+
+		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
+			if (!world.isClient && state.isOf(ModBlocks.ORANGEBLUE_CROP)) {
+				Random random = world.random;
+				if (random.nextDouble() < 0.015) {
+					ItemStack drop = new ItemStack(ModItems.ENDIUM.INGOT);
+					Block.dropStack(world, pos, drop);
+				}
+			}
+		});
 	}
 }

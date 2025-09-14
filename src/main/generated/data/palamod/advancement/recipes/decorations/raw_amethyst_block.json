@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_amethyst": {
+      "conditions": {
+        "items": [
+          {
+            "items": "palamod:raw_amethyst"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "palamod:raw_amethyst_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_amethyst"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "palamod:raw_amethyst_block"
+    ]
+  }
+}

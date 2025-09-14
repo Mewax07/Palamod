@@ -43,6 +43,72 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 						RecipeCategory.DECORATIONS, ModBlocks.getBlock("raw_" + name + "_block"));
 			}
 
+			if (mat.SWORD != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.SWORD)
+						.pattern(" P ")
+						.pattern(" P ")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.BROAD_SWORD != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.BROAD_SWORD)
+						.pattern(" PP")
+						.pattern(" PP")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.PICKAXE != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.PICKAXE)
+						.pattern("PPP")
+						.pattern(" S ")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.AXE != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.AXE)
+						.pattern("PP ")
+						.pattern("PS ")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.SHOVEL != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.SHOVEL)
+						.pattern(" P ")
+						.pattern(" S ")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.HOE != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.HOE)
+						.pattern("PP ")
+						.pattern(" S ")
+						.pattern(" S ")
+						.input('P', mat.INGOT)
+						.input('S', Items.STICK)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
 			if (mat.HAMMER != null) {
 				ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, mat.HAMMER)
 						.pattern("PPP")
@@ -52,6 +118,44 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 						.input('S', Items.STICK)
 						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
 						.criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+						.offerTo(exporter);
+			}
+
+			if (mat.HELMET != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, mat.HELMET)
+						.pattern("PPP")
+						.pattern("P P")
+						.input('P', mat.INGOT)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.CHESTPLATE != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, mat.CHESTPLATE)
+						.pattern("P P")
+						.pattern("PPP")
+						.pattern("PPP")
+						.input('P', mat.INGOT)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.LEGGINGS != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, mat.LEGGINGS)
+						.pattern("PPP")
+						.pattern("P P")
+						.pattern("P P")
+						.input('P', mat.INGOT)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
+						.offerTo(exporter);
+			}
+
+			if (mat.BOOTS != null) {
+				ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, mat.BOOTS)
+						.pattern("P P")
+						.pattern("P P")
+						.input('P', mat.INGOT)
+						.criterion(hasItem(mat.INGOT), conditionsFromItem(mat.INGOT))
 						.offerTo(exporter);
 			}
 		}

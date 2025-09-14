@@ -1,6 +1,15 @@
 {
   "values": [
+    "palamod:amethyst_sword",
+    "palamod:amethyst_broad_sword",
+    "palamod:amethyst_fast_sword",
+    "palamod:titane_sword",
+    "palamod:titane_broad_sword",
+    "palamod:titane_fast_sword",
     "palamod:paladium_sword",
+    "palamod:paladium_broad_sword",
+    "palamod:paladium_fast_sword",
+    "palamod:green_paladium_sword",
     "palamod:endium_sword"
   ]
 }

@@ -1,10 +1,31 @@
 {
   "values": [
+    "palamod:amethyst_block",
+    "palamod:amethyst_block_stairs",
+    "palamod:amethyst_block_slab",
+    "palamod:raw_amethyst_block",
+    "palamod:amethyst_ore",
+    "palamod:titane_block",
+    "palamod:titane_block_stairs",
+    "palamod:titane_block_slab",
+    "palamod:raw_titane_block",
+    "palamod:titane_ore",
     "palamod:paladium_block",
     "palamod:paladium_block_stairs",
     "palamod:paladium_block_slab",
     "palamod:raw_paladium_block",
     "palamod:paladium_ore",
-    "palamod:deepslate_paladium_ore"
+    "palamod:deepslate_paladium_ore",
+    "palamod:green_paladium_block",
+    "palamod:green_paladium_block_stairs",
+    "palamod:green_paladium_block_slab",
+    "palamod:raw_green_paladium_block",
+    "palamod:green_paladium_ore",
+    "palamod:deepslate_green_paladium_ore",
+    "palamod:endium_block",
+    "palamod:endium_block_stairs",
+    "palamod:endium_block_slab",
+    "palamod:endium_ore",
+    "palamod:deepslate_endium_ore"
   ]
 }
