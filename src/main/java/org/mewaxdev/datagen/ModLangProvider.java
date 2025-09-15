@@ -31,6 +31,8 @@ public class ModLangProvider extends FabricLanguageProvider {
 			if (mat.RAW != null) translationBuilder.add(mat.RAW, "Raw " + name);
 
 			if (mat.SWORD != null) translationBuilder.add(mat.SWORD, name + " Sword");
+			if (mat.BROAD_SWORD != null) translationBuilder.add(mat.BROAD_SWORD, name + "Broad Sword");
+			if (mat.FAST_SWORD != null) translationBuilder.add(mat.FAST_SWORD, name + "Fast Sword");
 			if (mat.PICKAXE != null) translationBuilder.add(mat.PICKAXE, name + " Pickaxe");
 			if (mat.AXE != null) translationBuilder.add(mat.AXE, name + " Axe");
 			if (mat.SHOVEL != null) translationBuilder.add(mat.SHOVEL, name + " Shovel");

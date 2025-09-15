@@ -2,13 +2,17 @@ package org.mewaxdev.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.client.render.item.ItemModels;
+import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.Identifier;
 import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.block.custom.ModCropBlock;
+import org.mewaxdev.component.ModDataComponentTypes;
 import org.mewaxdev.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -64,6 +68,12 @@ public class ModModelProvider extends FabricModelProvider {
 
 		for (Item custom : ModItems.NON_CLASS_REGISTERED_ITEM.values()) {
 			itemModelGenerator.register(custom, Models.GENERATED);
+		}
+
+		itemModelGenerator.register(ModItems.GOD_PICKAXE, "_0", Models.HANDHELD);
+
+		for (int i = 1; i <= 19; i++) {
+			itemModelGenerator.register(ModItems.GOD_PICKAXE, "_" + i, Models.HANDHELD);
 		}
 	}
 }

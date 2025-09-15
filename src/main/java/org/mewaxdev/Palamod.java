@@ -8,6 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.random.Random;
 import org.mewaxdev.block.ModBlocks;
+import org.mewaxdev.component.ModDataComponentTypes;
+import org.mewaxdev.event.ModEvents;
 import org.mewaxdev.item.ModItemGroups;
 import org.mewaxdev.item.ModItems;
 import org.mewaxdev.util.HammerUsageEvent;
@@ -24,6 +26,9 @@ public class Palamod implements ModInitializer {
         ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
+
+		ModEvents.registerEvents();
+		ModDataComponentTypes.registerDataComponentTypes();
 
 		ModWorldGeneration.generateModWorldGen();
 

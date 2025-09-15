@@ -10,6 +10,7 @@ import org.mewaxdev.block.ModBlocks;
 import org.mewaxdev.item.custom.ChiselItem;
 import org.mewaxdev.item.custom.HammerItem;
 import org.mewaxdev.item.custom.ModArmorItem;
+import org.mewaxdev.item.custom.PickaxeOfGod;
 
 import java.util.*;
 
@@ -86,6 +87,10 @@ public class ModItems {
 
 	public static final Item ORANGEBLUE_SEEDS = registerItem("orangeblue_seeds",
 			new AliasedBlockItem(ModBlocks.ORANGEBLUE_CROP, new Item.Settings()
+			));
+
+	public static final Item GOD_PICKAXE = registerItem("god_pickaxe",
+			new PickaxeOfGod(ToolMaterials.WOOD, new Item.Settings()
 			));
 
 	private static Item registerItem(String name, Item item) {
