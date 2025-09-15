@@ -14,6 +14,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.mewaxdev.component.ModDataComponentTypes;
 
+import java.util.Objects;
+
 public class PickaxeOfGod extends MiningToolItem {
 	private static final int XP_PER_BLOCK = 3;
 	private static final int XP_PER_LEVEL = 100;
@@ -22,6 +24,7 @@ public class PickaxeOfGod extends MiningToolItem {
 	public PickaxeOfGod(ToolMaterial material, Item.Settings settings) {
 		super(material, BlockTags.PICKAXE_MINEABLE, settings.maxDamage(999));
 	}
+
 
 	@Override
 	public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
@@ -34,6 +37,8 @@ public class PickaxeOfGod extends MiningToolItem {
 
 			int newLevel = Math.min(MAX_LEVEL, currentXp / XP_PER_LEVEL);
 			stack.set(ModDataComponentTypes.LEVEL, newLevel);
+
+			Objects.requireNonNull(MinecraftClient.getInstance().getNetworkHandler()).sendChatMessage("POG break new block " + newLevel + " current xp " + currentXp);
 		}
 
 		return super.postMine(stack, world, state, pos, miner);
@@ -54,6 +59,16 @@ public class PickaxeOfGod extends MiningToolItem {
 		int level = getLevel(stack);
 		int xpIntoLevel = xp - (level * XP_PER_LEVEL);
 		return (float) xpIntoLevel / (float) XP_PER_LEVEL;
+	}
+
+	@Override
+	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		return true;
+	}
+
+	@Override
+	public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		// no-op => pas de dégât d'usure
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import org.mewaxdev.event.ModEvents;
 import org.mewaxdev.item.ModItemGroups;
 import org.mewaxdev.item.ModItems;
 import org.mewaxdev.util.HammerUsageEvent;
+import org.mewaxdev.util.ModModelPredicates;
 import org.mewaxdev.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
