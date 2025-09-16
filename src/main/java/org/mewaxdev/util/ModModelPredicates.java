@@ -11,7 +11,10 @@ public class ModModelPredicates {
 		ModelPredicateProviderRegistry.register(
 				ModItems.GOD_PICKAXE,
 				Identifier.of(Palamod.MOD_ID, "level"),
-				(stack, world, entity, seed) -> (float) PickaxeOfGod.getLevel(stack)
+				(stack, world, entity, seed) -> {
+					int lvl = PickaxeOfGod.getLevel(stack);
+					return lvl / 19.0F;
+				}
 		);
 	}
 }

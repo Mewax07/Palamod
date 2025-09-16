@@ -1,0 +1,28 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "palamod:item/god_pickaxe_0"
+	},
+	"overrides": [
+		{ "predicate": { "palamod:level": 0.0 }, "model": "palamod:item/god_pickaxe_0" },
+		{ "predicate": { "palamod:level": 0.0526 }, "model": "palamod:item/god_pickaxe_1" },
+		{ "predicate": { "palamod:level": 0.105 }, "model": "palamod:item/god_pickaxe_2" },
+		{ "predicate": { "palamod:level": 0.158 }, "model": "palamod:item/god_pickaxe_3" },
+		{ "predicate": { "palamod:level": 0.211 }, "model": "palamod:item/god_pickaxe_4" },
+		{ "predicate": { "palamod:level": 0.263 }, "model": "palamod:item/god_pickaxe_5" },
+		{ "predicate": { "palamod:level": 0.316 }, "model": "palamod:item/god_pickaxe_6" },
+		{ "predicate": { "palamod:level": 0.368 }, "model": "palamod:item/god_pickaxe_7" },
+		{ "predicate": { "palamod:level": 0.421 }, "model": "palamod:item/god_pickaxe_8" },
+		{ "predicate": { "palamod:level": 0.474 }, "model": "palamod:item/god_pickaxe_9" },
+		{ "predicate": { "palamod:level": 0.526 }, "model": "palamod:item/god_pickaxe_10" },
+		{ "predicate": { "palamod:level": 0.579 }, "model": "palamod:item/god_pickaxe_11" },
+		{ "predicate": { "palamod:level": 0.632 }, "model": "palamod:item/god_pickaxe_12" },
+		{ "predicate": { "palamod:level": 0.684 }, "model": "palamod:item/god_pickaxe_13" },
+		{ "predicate": { "palamod:level": 0.737 }, "model": "palamod:item/god_pickaxe_14" },
+		{ "predicate": { "palamod:level": 0.789 }, "model": "palamod:item/god_pickaxe_15" },
+		{ "predicate": { "palamod:level": 0.842 }, "model": "palamod:item/god_pickaxe_16" },
+		{ "predicate": { "palamod:level": 0.895 }, "model": "palamod:item/god_pickaxe_17" },
+		{ "predicate": { "palamod:level": 0.947 }, "model": "palamod:item/god_pickaxe_18" },
+		{ "predicate": { "palamod:level": 1.0 }, "model": "palamod:item/god_pickaxe_19" }
+	]
+}
