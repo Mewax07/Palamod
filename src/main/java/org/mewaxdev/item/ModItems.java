@@ -90,7 +90,7 @@ public class ModItems {
 			));
 
 	public static final Item GOD_PICKAXE = registerItem("god_pickaxe",
-			new PickaxeOfGod(ToolMaterials.NETHERITE, new Item.Settings()
+			new PickaxeOfGod(ModToolMaterials.GOD_PICKAXE, new Item.Settings()
 			));
 
 	private static Item registerItem(String name, Item item) {

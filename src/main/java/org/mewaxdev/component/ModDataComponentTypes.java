@@ -10,8 +10,8 @@ import org.mewaxdev.Palamod;
 import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
-	public static final ComponentType<Integer> XP_LEVEL = register("xp_level", build -> build.codec(Codec.INT));
-	public static final ComponentType<Integer> LEVEL = register("level", build -> build.codec(Codec.INT));
+	public static final ComponentType<Float> XP_LEVEL = register("xp_level", build -> build.codec(Codec.FLOAT));
+	public static final ComponentType<Float> LEVEL = register("level", build -> build.codec(Codec.FLOAT));
 
 	private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
 		return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(Palamod.MOD_ID, name),

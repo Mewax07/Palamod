@@ -20,6 +20,8 @@ public enum ModToolMaterials implements ToolMaterial {
 			4999, 8.0f, 6.0f, 20, () -> Ingredient.ofItems(ModItems.GREEN_PALADIUM.INGOT)),
 	ENDIUM(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
 			4999, 9.3f, 7.3f, 22, () -> Ingredient.ofItems(ModItems.ENDIUM.INGOT)),
+	GOD_PICKAXE(ModTags.Blocks.INCORRECT_FOR_PALADIUM_TOOL,
+			999, 5.0f, 5.0f, 20, () -> Ingredient.ofItems(ModItems.GOD_PICKAXE)),
 	;
 
 	private final TagKey<Block> inverseTag;
