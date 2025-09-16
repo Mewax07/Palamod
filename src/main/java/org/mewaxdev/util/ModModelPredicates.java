@@ -13,7 +13,7 @@ public class ModModelPredicates {
 				Identifier.of(Palamod.MOD_ID, "level"),
 				(stack, world, entity, seed) -> {
 					int lvl = PickaxeOfGod.getLevel(stack);
-					return lvl / 19.0F;
+					return lvl / 100.0F;
 				}
 		);
 	}
