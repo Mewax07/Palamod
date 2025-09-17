@@ -82,6 +82,13 @@ public class ModLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("itemgroup.palamod.palamod_blocks", "Palamod Blocks");
 
 		translationBuilder.add("trim_material." + Palamod.MOD_ID + ".paladium", "Paladium Material");
+
+		translationBuilder.add("item.palamod.pickaxe_of_god.name", "Pickaxe of the gods (Level %s)");
+
+		translationBuilder.add("tooltip.palamod.pickaxe_of_god.level", "Level: %s");
+		translationBuilder.add("tooltip.palamod.pickaxe_of_god.xp", "XP: %s / %s");
+		translationBuilder.add("tooltip.palamod.pickaxe_of_god.total_xp", "Total XP: %s");
+		translationBuilder.add("tooltip.palamod.pickaxe_of_god.max_level", "Max Level Reached!");
 	}
 
 	private static String parseName(String name) {

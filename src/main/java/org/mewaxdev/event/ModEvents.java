@@ -8,6 +8,5 @@ import org.mewaxdev.item.custom.PickaxeOfGod;
 
 public class ModEvents {
     public static void registerEvents() {
-        //
     }
 }

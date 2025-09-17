@@ -24,13 +24,6 @@ public class ModConfiguredFeatures {
 		RuleTest stoneReplaceable = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
 		RuleTest deepslateReplaceable = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
-//		List<OreFeatureConfig.Target> overworldPaladiumOres = List.of(
-//				OreFeatureConfig.createTarget(stoneReplaceable, ModBlocks.PALADIUM.ORE.getDefaultState()),
-//				OreFeatureConfig.createTarget(deepslateReplaceable, ModBlocks.PALADIUM.DEEPSLATE_ORE.getDefaultState())
-//		);
-//
-//		register(context, PALADIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldPaladiumOres, 4, 0.5f));
-
 		for (ModBlocks.MaterialBlocks mat : ModBlocks.getAllMaterials()) {
 			if (mat.ORE != null || mat.DEEPSLATE_ORE != null) {
 				var gen = mat.options.getOreGenOptions();

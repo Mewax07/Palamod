@@ -34,7 +34,6 @@ public class ModTrimMaterials {
 				style = Style.EMPTY.withColor(TextColor.parse(MATERIAL_COLORS.get(name)).getOrThrow());
 			}
 
-			// Register le trim
 			register(registerable,
 					RegistryKey.of(RegistryKeys.TRIM_MATERIAL, Identifier.of(Palamod.MOD_ID, name)),
 					itemEntry,

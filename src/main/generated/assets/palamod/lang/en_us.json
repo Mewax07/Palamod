@@ -81,6 +81,7 @@
   "item.palamod.paladium_pickaxe": "Paladium Pickaxe",
   "item.palamod.paladium_shovel": "Paladium Shovel",
   "item.palamod.paladium_sword": "Paladium Sword",
+  "item.palamod.pickaxe_of_god.name": "Pickaxe of the gods (Level %s)",
   "item.palamod.raw_amethyst": "Raw Amethyst",
   "item.palamod.raw_green_paladium": "Raw Green Paladium",
   "item.palamod.raw_paladium": "Raw Paladium",
@@ -100,5 +101,9 @@
   "item.palamod.titane_sword": "Titane Sword",
   "itemgroup.palamod.palamod_blocks": "Palamod Blocks",
   "itemgroup.palamod.palamod_items": "Palamod Items",
+  "tooltip.palamod.pickaxe_of_god.level": "Level: %s",
+  "tooltip.palamod.pickaxe_of_god.max_level": "Max Level Reached!",
+  "tooltip.palamod.pickaxe_of_god.total_xp": "Total XP: %s",
+  "tooltip.palamod.pickaxe_of_god.xp": "XP: %s / %s",
   "trim_material.palamod.paladium": "Paladium Material"
 }

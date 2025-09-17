@@ -23,10 +23,6 @@ public class ModPlacedFeatures {
 	public static void bootstrap(Registerable<PlacedFeature> context) {
 		var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
-//		register(context, PALADIUM_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.PALADIUM_ORE_KEY),
-//				ModOrePlacement.modifiersWithCount(1,
-//						HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(16))));
-
 		for (ModBlocks.MaterialBlocks mat : ModBlocks.getAllMaterials()) {
 			if (mat.ORE != null || mat.DEEPSLATE_ORE != null) {
 				var gen = mat.options.getOreGenOptions();

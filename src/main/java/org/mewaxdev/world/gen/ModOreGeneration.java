@@ -12,8 +12,6 @@ import org.mewaxdev.block.ModBlocks;
 
 public class ModOreGeneration {
 	public static void generateOres() {
-//		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.PALADIUM_ORE_PLACED_KEY);
-
 		for (ModBlocks.MaterialBlocks mat : ModBlocks.getAllMaterials()) {
 			if (mat.ORE != null || mat.DEEPSLATE_ORE != null) {
 				var gen = mat.options.getOreGenOptions();

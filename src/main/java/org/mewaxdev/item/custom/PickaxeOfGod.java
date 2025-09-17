@@ -148,12 +148,12 @@ public class PickaxeOfGod extends MiningToolItem {
 		}
 		int xpIntoLevel = xp - totalXpBefore;
 
-		tooltip.add(Text.literal("Level: " + level).formatted(Formatting.YELLOW));
-		tooltip.add(Text.literal("XP: " + xpIntoLevel + " / " + xpForNextLevel).formatted(Formatting.GRAY));
-		tooltip.add(Text.literal("Total XP: " + xp).formatted(Formatting.GREEN));
+		tooltip.add(Text.translatable("tooltip.palamod.pickaxe_of_god.level", level).formatted(Formatting.YELLOW));
+		tooltip.add(Text.translatable("tooltip.palamod.pickaxe_of_god.xp", xpIntoLevel, xpForNextLevel).formatted(Formatting.GRAY));
+		tooltip.add(Text.translatable("tooltip.palamod.pickaxe_of_god.total_xp", xp).formatted(Formatting.GREEN));
 
 		if (level >= 100) {
-			tooltip.add(Text.literal("Max Level Reached!").formatted(Formatting.GOLD, Formatting.BOLD));
+			tooltip.add(Text.translatable("tooltip.palamod.pickaxe_of_god.max_level").formatted(Formatting.GOLD, Formatting.BOLD));
 		}
 	}
 
@@ -183,7 +183,10 @@ public class PickaxeOfGod extends MiningToolItem {
 			int newLevel = computeLevel(currentXp);
 			stack.set(ModDataComponentTypes.LEVEL, newLevel);
 
-			stack.set(DataComponentTypes.CUSTOM_NAME, Text.literal("God Pickaxe (Lvl " + newLevel + ")").formatted(Formatting.GOLD));
+			stack.set(DataComponentTypes.CUSTOM_NAME,
+					Text.translatable("item.palamod.pickaxe_of_god.name", newLevel)
+							.formatted(Formatting.GOLD)
+							.styled(style -> style.withItalic(false)));
 			if (oldLevel != newLevel) {
 				applyLevelBonuses(stack, newLevel, world);
 			}
@@ -343,9 +346,9 @@ public class PickaxeOfGod extends MiningToolItem {
 		int er = (endColor >> 16) & 0xFF;
 		int eg = (endColor >> 8) & 0xFF;
 		int eb = endColor & 0xFF;
-		int r = (int)(sr + (er - sr) * t);
-		int g = (int)(sg + (eg - sg) * t);
-		int b = (int)(sb + (eb - sb) * t);
+		int r = (int) (sr + (er - sr) * t);
+		int g = (int) (sg + (eg - sg) * t);
+		int b = (int) (sb + (eb - sb) * t);
 		return (r << 16) | (g << 8) | b;
 	}
 
@@ -372,6 +375,6 @@ public class PickaxeOfGod extends MiningToolItem {
 				block.getDefaultState().isIn(BlockTags.REDSTONE_ORES) ||
 				block.getDefaultState().isIn(BlockTags.EMERALD_ORES) ||
 				block.getDefaultState().isIn(BlockTags.DIAMOND_ORES)
-			;
+				;
 	}
 }
