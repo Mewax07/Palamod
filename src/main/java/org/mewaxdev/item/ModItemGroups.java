@@ -44,6 +44,8 @@ public class ModItemGroups {
 						for (Item items : ModItems.NON_CLASS_REGISTERED_ITEM.values()) {
 							entries.add(items);
 						}
+
+						entries.add(ModItems.GOD_PICKAXE);
 					})
 					.build()
 	);
