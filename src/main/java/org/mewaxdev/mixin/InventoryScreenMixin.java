@@ -14,7 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(InventoryScreen.class)
 public class InventoryScreenMixin {
-	// public static final Identifier SLOT_TEXTURE = Identifier.of(Palamod.MOD_ID, "textures/gui/slot/texture.png");
+	// private static final Identifier SLOT_TEXTURE = Identifier.of(Palamod.MOD_ID, "textures/gui/slot/texture.png");
+	private static final Identifier SHORTCUT_TEXTURE = Identifier.of(Palamod.MOD_ID, "textures/gui/inventory/shortcut_list_background.png");
 
 	@Inject(method = "drawBackground", at = @At("HEAD"), cancellable = true)
 	private void onDrawBackground(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
@@ -26,7 +27,7 @@ public class InventoryScreenMixin {
 		int panelColor = 0xFF1E1D23;
 		int borderColor = 0xFF40404D;
 
-		int w = 176, h = 166;
+		int w = 208, h = 166;
 		int cx = (MinecraftClient.getInstance().getWindow().getScaledWidth() - w) / 2;
 		int cy = (MinecraftClient.getInstance().getWindow().getScaledHeight() - h) / 2;
 
@@ -45,5 +46,7 @@ public class InventoryScreenMixin {
 		ds.drawRect(matrices, cx + w, cy, innerRadius, h, borderColor);
 		ds.drawRect(matrices, cx, cy - innerRadius, w, innerRadius, borderColor);
 		ds.drawRect(matrices, cx, cy + h, w, innerRadius, borderColor);
+
+		context.drawTexture(SHORTCUT_TEXTURE, cx + w - 24, 24, 0, 0, 32, 32);
 	}
 }
