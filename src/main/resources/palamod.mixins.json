@@ -10,5 +10,13 @@
 	},
 	"overwrites": {
 		"requireAnnotations": true
-	}
+	},
+	"client": [
+		"HotbarMixin",
+		"RecipeBookWidgetMixin",
+		"MinecraftClientMixin",
+		"TexturedButtonWidgetAccessor",
+		"ToastManagerMixin",
+		"HandledScreenAccessor"
+	]
 }
