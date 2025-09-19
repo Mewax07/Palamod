@@ -140,11 +140,8 @@ public class HotbarMixin {
 		int baseY = screenHeight - 39;
 
 		drawHealthBar(context, player, centerX, baseY);
-
 		drawArmorBar(context, player, centerX, baseY);
-
 		drawFoodBar(context, player, centerX, baseY);
-
 		drawAirBar(context, player, centerX, baseY);
 	}
 
@@ -186,7 +183,7 @@ public class HotbarMixin {
 					heartTexture = HEART_POISON;
 				}
 
-				context.drawTexture(heartTexture, heartX + 1, rowY, 0, 0, 8, 8, 8, 8);
+				context.drawTexture(heartTexture, heartX, rowY, 0, 0, 8, 8, 8, 8);
 			}
 		}
 	}

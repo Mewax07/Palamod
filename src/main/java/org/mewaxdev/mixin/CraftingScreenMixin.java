@@ -2,14 +2,14 @@ package org.mewaxdev.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.ingame.CraftingScreen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
+import net.minecraft.client.gui.widget.TexturedButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.screen.CraftingScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import org.mewaxdev.ui.DrawShapeModern;
@@ -20,49 +20,31 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(InventoryScreen.class)
-public abstract class InventoryScreenMixin extends HandledScreen<PlayerScreenHandler> {
-	@Shadow
-	private float mouseX;
-	@Shadow
-	private float mouseY;
-
+@Mixin(CraftingScreen.class)
+public abstract class CraftingScreenMixin extends HandledScreen<CraftingScreenHandler> {
 	@Shadow
 	private boolean narrow;
 
 	@Shadow
 	private final RecipeBookWidget recipeBook = new RecipeBookWidget();
 
-	@Shadow
-	public static void drawEntity(DrawContext context, int x1, int y1, int x2, int y2, int size, float f, float mouseX, float mouseY, LivingEntity entity) {
-	}
-
 	@Unique
 	private static final int PANEL_COLOR = 0xFF1E1D23;
 	@Unique
 	private static final int BORDER_COLOR = 0xFF40404D;
 
-	public InventoryScreenMixin(PlayerScreenHandler handler, PlayerInventory inventory, Text title) {
+	public CraftingScreenMixin(CraftingScreenHandler handler, PlayerInventory inventory, Text title) {
 		super(handler, inventory, title);
 	}
 
 	@Inject(method = "init", at = @At("HEAD"), cancellable = true)
 	private void onInit(CallbackInfo ci) {
 		ci.cancel();
-		if (this.client.interactionManager.hasCreativeInventory()) {
-			this.client.setScreen(
-					new CreativeInventoryScreen(
-							this.client.player,
-							this.client.player.networkHandler.getEnabledFeatures(),
-							this.client.options.getOperatorItemsTab().getValue()
-					)
-			);
-		} else {
-			super.init();
-			this.narrow = this.width < 379;
-			this.recipeBook.initialize(this.width, this.height, this.client, this.narrow, this.handler);
-			this.x = (this.width - this.backgroundWidth) / 2;
-		}
+		super.init();
+		this.narrow = this.width < 379;
+		this.recipeBook.initialize(this.width, this.height, this.client, this.narrow, this.handler);
+		this.x = (this.width - this.backgroundWidth) / 2;
+		this.titleX = 29;
 	}
 
 	@Inject(method = "render", at = @At("HEAD"), cancellable = true)
@@ -72,8 +54,6 @@ public abstract class InventoryScreenMixin extends HandledScreen<PlayerScreenHan
 		super.render(context, mouseX, mouseY, delta);
 
 		this.drawMouseoverTooltip(context, mouseX, mouseY);
-		this.mouseX = mouseX;
-		this.mouseY = mouseY;
 	}
 
 	@Inject(method = "drawBackground", at = @At("HEAD"), cancellable = true)
@@ -93,15 +73,6 @@ public abstract class InventoryScreenMixin extends HandledScreen<PlayerScreenHan
 
 		drawRoundedPanel(matrices, ds, mainX, mainY, mainWidth, mainHeight, PANEL_COLOR, BORDER_COLOR);
 		renderSlots(matrices, ds);
-
-		int i = this.x;
-		int j = this.y;
-		drawEntity(context, i + 26, j + 8, i + 75, j + 78, 30, 0.0625F, this.mouseX, this.mouseY, this.client.player);
-	}
-
-	@Inject(method = "drawForeground", at = @At("HEAD"), cancellable = true)
-	private void removeAllText(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
-		ci.cancel();
 	}
 
 	@Unique

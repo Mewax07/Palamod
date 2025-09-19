@@ -2,9 +2,7 @@
 	"required": true,
 	"package": "org.mewaxdev.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"InventoryScreenMixin"
-	],
+	"mixins": [],
 	"injectors": {
 		"defaultRequire": 1
 	},
@@ -12,11 +10,9 @@
 		"requireAnnotations": true
 	},
 	"client": [
-		"HotbarMixin",
-		"RecipeBookWidgetMixin",
-		"MinecraftClientMixin",
-		"TexturedButtonWidgetAccessor",
-		"ToastManagerMixin",
-		"HandledScreenAccessor"
+		"InventoryScreenMixin",
+		"CraftingScreenMixin",
+		"AbstractInventoryScreenMixin",
+		"HotbarMixin"
 	]
 }
