@@ -39,13 +39,13 @@ public abstract class AbstractInventoryScreenMixin<T extends ScreenHandler> exte
 	private void onDrawStatusEffects(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
 		ci.cancel();
 
-		int startX = this.x - 144;
+		int startX = this.x - 124;
 		int widthRemaining = this.width - startX;
 
 		Collection<StatusEffectInstance> effects = this.client.player.getStatusEffects();
 		if (effects.isEmpty() || widthRemaining < 32) return;
 
-		boolean wide = widthRemaining >= 120;
+		boolean wide = widthRemaining >= 100;
 		int step = effects.size() > 5 ? 132 / (effects.size() - 1) : 37;
 
 		Iterable<StatusEffectInstance> ordered = Ordering.natural().sortedCopy(effects);
@@ -54,7 +54,7 @@ public abstract class AbstractInventoryScreenMixin<T extends ScreenHandler> exte
 
 		int y = this.y;
 		for (StatusEffectInstance effect : ordered) {
-			int panelWidth = wide ? 120 : 32;
+			int panelWidth = wide ? 100 : 32;
 
 			drawRoundedPanel(matrices, ds, startX, y, panelWidth, 22, PANEL_COLOR);
 

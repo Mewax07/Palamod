@@ -1,5 +1,6 @@
 package org.mewaxdev.item.custom;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -29,7 +30,7 @@ import java.util.*;
 public class PickaxeOfGod extends MiningToolItem {
 	private static final int[] LEVEL_XP = new int[101];
 	private static final int XP_PER_BLOCK = 3;
-	private static final boolean CHEAT_MODE = false;
+	private static final boolean CHEAT_MODE = FabricLoader.getInstance().isDevelopmentEnvironment();
 
 	static {
 		LEVEL_XP[1] = 52 * XP_PER_BLOCK;

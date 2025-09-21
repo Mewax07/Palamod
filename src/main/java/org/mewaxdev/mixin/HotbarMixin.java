@@ -244,7 +244,7 @@ public abstract class HotbarMixin {
 		int screenHeight = client.getWindow().getScaledHeight();
 
 		int centerX = screenWidth / 2;
-		int baseY = screenHeight - 39;
+		int baseY = screenHeight - 41;
 
 		drawHealthBar(context, player, centerX, baseY);
 		drawArmorBar(context, player, centerX, baseY);
@@ -381,9 +381,9 @@ public abstract class HotbarMixin {
 		int level = player.experienceLevel;
 
 		int barWidth = 180;
-		int barHeight = 5;
-		int x = (screenWidth - barWidth) / 2;
-		int y = screenHeight - 29;
+		int barHeight = 4;
+		int x = (screenWidth - barWidth) / 2 - 1;
+		int y = screenHeight - 31;
 
 		DrawShapeModern ds = DrawShapeModern.getInstance();
 		MatrixStack matrices = new MatrixStack();
@@ -394,18 +394,22 @@ public abstract class HotbarMixin {
 
 		int leftWidth = (int) Math.min(xpPercent * barWidth, halfBarWidth);
 
-		ds.drawRect(matrices, x, y, halfBarWidth, barHeight, 0xFF333333);
+		ds.drawRect(matrices, x, y, halfBarWidth, barHeight, 0xFF323232);
+		ds.drawRect(matrices, x, y + barHeight, halfBarWidth, 1, 0xFF1A1A1A);
 		if (leftWidth > 0) {
 			ds.drawRect(matrices, x, y, leftWidth, barHeight, 0xFF39FF65);
+			ds.drawRect(matrices, x, y + barHeight, leftWidth, 1, 0xFF005B14);
 		}
 
 		double rightProgress = xpPercent * barWidth - halfBarWidth;
 		int rightX = x + halfBarWidth + textWidth + 4;
 		int rightWidth = (int) Math.min(Math.max(rightProgress, 0), halfBarWidth);
 
-		ds.drawRect(matrices, rightX, y, halfBarWidth, barHeight, 0xFF333333);
+		ds.drawRect(matrices, rightX, y, halfBarWidth, barHeight, 0xFF323232);
+		ds.drawRect(matrices, rightX, y + barHeight, halfBarWidth, 1, 0xFF1A1A1A);
 		if (rightWidth > 0) {
 			ds.drawRect(matrices, rightX, y, rightWidth, barHeight, 0xFF39FF65);
+			ds.drawRect(matrices, rightX, y + barHeight, rightWidth, 1, 0xFF005B14);
 		}
 
 		context.drawText(MinecraftClient.getInstance().textRenderer, levelStr,
