@@ -2,19 +2,21 @@ package org.mewaxdev.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.gui.LayeredDrawer;
+import net.minecraft.client.gui.hud.*;
 import net.minecraft.client.render.RenderTickCounter;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.JumpingMount;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import org.mewaxdev.PalamodClient;
+import net.minecraft.world.GameMode;
+import org.mewaxdev.Palamod;
+import org.mewaxdev.ui.DrawShapeModern;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -23,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(InGameHud.class)
-public class HotbarMixin {
+public abstract class HotbarMixin {
 	private static final Identifier HOTBAR_SLOT = Identifier.of("palamod", "textures/gui/hotbar/slot.png");
 	private static final Identifier HOTBAR_SLOT_SELECTED = Identifier.of("palamod", "textures/gui/hotbar/slot_selected.png");
 
@@ -56,6 +58,111 @@ public class HotbarMixin {
 	@Shadow
 	private int getHeartRows(int heartCount) {
 		return 0;
+	}
+
+	@Shadow
+	@Final
+	private SpectatorHud spectatorHud;
+
+	@Shadow
+	protected abstract void renderHotbar(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderMountJumpBar(JumpingMount mount, DrawContext context, int x);
+
+	@Shadow
+	protected abstract boolean shouldRenderExperience();
+
+	@Shadow
+	protected abstract void renderStatusBars(DrawContext context);
+
+	@Shadow
+	protected abstract void renderMountHealth(DrawContext context);
+
+	@Shadow
+	protected abstract void renderHeldItemTooltip(DrawContext context);
+
+	@Shadow
+	protected abstract void renderStatusEffectOverlay(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	@Final
+	private BossBarHud bossBarHud;
+
+	@Shadow
+	protected abstract void renderMainHud(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderCrosshair(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderMiscOverlays(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderDemoTimer(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	@Final
+	private DebugHud debugHud;
+
+	@Shadow
+	protected abstract void renderScoreboardSidebar(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderOverlayMessage(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderTitleAndSubtitle(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderChat(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	protected abstract void renderPlayerList(DrawContext context, RenderTickCounter tickCounter);
+
+	@Shadow
+	@Final
+	private SubtitlesHud subtitlesHud;
+
+	@Shadow
+	@Final
+	private LayeredDrawer layeredDrawer;
+
+	@Shadow
+	protected abstract void renderSleepOverlay(DrawContext context, RenderTickCounter tickCounter);
+
+	@Inject(method = "renderExperienceLevel", at = @At("HEAD"), cancellable = true)
+	private void onRenderExperienceLevel(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
+		ci.cancel();
+	}
+
+	@Inject(method = "renderMainHud", at = @At("HEAD"), cancellable = true)
+	private void onRenderMainHud(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
+		ci.cancel();
+		if (this.client.interactionManager.getCurrentGameMode() == GameMode.SPECTATOR) {
+			this.spectatorHud.renderSpectatorMenu(context);
+		} else {
+			this.renderHotbar(context, tickCounter);
+		}
+
+		int i = context.getScaledWindowWidth() / 2 - 91;
+		JumpingMount jumpingMount = this.client.player.getJumpingMount();
+		if (jumpingMount != null) {
+			this.renderMountJumpBar(jumpingMount, context, i);
+		} else if (this.shouldRenderExperience()) {
+			drawXpBar(context);
+		}
+
+		if (this.client.interactionManager.hasStatusBars()) {
+			this.renderStatusBars(context);
+		}
+
+		this.renderMountHealth(context);
+		if (this.client.interactionManager.getCurrentGameMode() != GameMode.SPECTATOR) {
+			this.renderHeldItemTooltip(context);
+		} else if (this.client.player.isSpectator()) {
+			this.spectatorHud.render(context);
+		}
 	}
 
 	@Inject(method = "renderHotbar", at = @At("HEAD"), cancellable = true)
@@ -261,4 +368,50 @@ public class HotbarMixin {
 			context.drawTexture(bubbleTexture, bubbleX, airY, 0, 0, 9, 9, 9, 9);
 		}
 	}
+
+	@Unique
+	private void drawXpBar(DrawContext context) {
+		PlayerEntity player = client.player;
+		if (player == null) return;
+
+		int screenWidth = client.getWindow().getScaledWidth();
+		int screenHeight = client.getWindow().getScaledHeight();
+
+		double xpPercent = player.experienceProgress;
+		int level = player.experienceLevel;
+
+		int barWidth = 180;
+		int barHeight = 5;
+		int x = (screenWidth - barWidth) / 2;
+		int y = screenHeight - 29;
+
+		DrawShapeModern ds = DrawShapeModern.getInstance();
+		MatrixStack matrices = new MatrixStack();
+
+		String levelStr = "" + level;
+		int textWidth = MinecraftClient.getInstance().textRenderer.getWidth(levelStr);
+		int halfBarWidth = (barWidth - textWidth - 4) / 2;
+
+		int leftWidth = (int) Math.min(xpPercent * barWidth, halfBarWidth);
+
+		ds.drawRect(matrices, x, y, halfBarWidth, barHeight, 0xFF333333);
+		if (leftWidth > 0) {
+			ds.drawRect(matrices, x, y, leftWidth, barHeight, 0xFF39FF65);
+		}
+
+		double rightProgress = xpPercent * barWidth - halfBarWidth;
+		int rightX = x + halfBarWidth + textWidth + 4;
+		int rightWidth = (int) Math.min(Math.max(rightProgress, 0), halfBarWidth);
+
+		ds.drawRect(matrices, rightX, y, halfBarWidth, barHeight, 0xFF333333);
+		if (rightWidth > 0) {
+			ds.drawRect(matrices, rightX, y, rightWidth, barHeight, 0xFF39FF65);
+		}
+
+		context.drawText(MinecraftClient.getInstance().textRenderer, levelStr,
+				x + halfBarWidth + 2,
+				y - 2,
+				0x39FF65, true);
+	}
+
 }

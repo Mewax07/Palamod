@@ -39,7 +39,7 @@ public abstract class AbstractInventoryScreenMixin<T extends ScreenHandler> exte
 	private void onDrawStatusEffects(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
 		ci.cancel();
 
-		int startX = this.x - 164;
+		int startX = this.x - 144;
 		int widthRemaining = this.width - startX;
 
 		Collection<StatusEffectInstance> effects = this.client.player.getStatusEffects();

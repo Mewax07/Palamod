@@ -10,9 +10,11 @@
 		"requireAnnotations": true
 	},
 	"client": [
-		"InventoryScreenMixin",
-		"CraftingScreenMixin",
 		"AbstractInventoryScreenMixin",
-		"HotbarMixin"
+		"CraftingScreenMixin",
+		"CreativeInventoryScreenMixin",
+		"DefaultPlayerSkinMixin",
+		"HotbarMixin",
+		"InventoryScreenMixin"
 	]
 }
