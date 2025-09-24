@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-17T17:44:42.3897536	Palamod/Recipes
+// 1.21.1	2025-09-24T21:32:52.7001574	Palamod/Recipes
 5f1edeb6bed75d50cb4d0b37ffdc87275f83e3a5 data\palamod\recipe\amethyst_sword.json
 076ef6c50d9ba765bab69a2a29d4f78f689008a8 data\palamod\recipe\raw_green_paladium_block.json
 334c0e12b013ecf42734143d98eccc3558c95aca data\palamod\recipe\raw_paladium_block.json
@@ -47,6 +47,7 @@ a5b117dd5d6eb46149b536729b702dbcef173370 data\palamod\recipe\amethyst_block.json
 e6cb54d98c92c1b9153d7a57fee3a7f569cace96 data\palamod\recipe\green_paladium_ingot_from_smelting_raw_green_paladium.json
 33f1d26d68f77f5792e48b9fed42294f33af0270 data\palamod\advancement\recipes\combat\amethyst_boots.json
 f0450bfe6d77870a2dbe361f77fc119b1b1cb85a data\palamod\advancement\recipes\building_blocks\paladium_ingot.json
+b30876a6f3130f74a97f16feb478c2cfb0a4f940 data\palamod\advancement\recipes\tools\endium_shovel.json
 d0c7328411547e4787f664f2cfea5eaed59786dd data\palamod\recipe\amethyst_hammer.json
 fc202efae06092b9650e1ff101d4c1ad92efcb7e data\palamod\recipe\endium_boots.json
 ec052b6d9758be915b180576713e0d9c0d6998e2 data\palamod\recipe\titane_helmet.json
@@ -81,6 +82,7 @@ e576762d363e57bf31cda27fcc0888313906a37c data\palamod\advancement\recipes\decora
 fe82129716446976eccd14662cd44602393ba980 data\palamod\advancement\recipes\building_blocks\titane_ingot.json
 4502390a1189d155bc48143995af709ebba72a1b data\palamod\advancement\recipes\tools\endium_hoe.json
 4bc803392338e193206ad1270ca70f4746f348e1 data\palamod\recipe\green_paladium_boots.json
+e95c69b368b7d32580244c56190bea8b942b5871 data\palamod\recipe\endium_shovel.json
 38ef2adc2efb5ead9f342f79d599178090121a02 data\palamod\recipe\paladium_helmet.json
 24acbb83c64ed8640ffe6a627ce61f6762575f30 data\palamod\advancement\recipes\tools\titane_broad_sword.json
 152ec49d7476b0b68101466422c93940cc052f2e data\palamod\advancement\recipes\tools\green_paladium_hoe.json

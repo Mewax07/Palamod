@@ -12,6 +12,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.block.custom.ModCropBlock;
 import org.mewaxdev.item.ModItems;
+import org.mewaxdev.item.custom.FertilizedDirt;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -90,6 +91,10 @@ public class ModBlocks {
 
 	public static final Block ORANGEBLUE_CROP = registerBlock("orangeblue",
 			new ModCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY).mapColor(MapColor.DARK_GREEN)
+			));
+
+	public static final Block FERTILIZED_DIRT = registerBlock("fertilized_dirt",
+			new FertilizedDirt(AbstractBlock.Settings.create()
 			));
 
 	public static class MaterialBlocks {

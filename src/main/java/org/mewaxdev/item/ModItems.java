@@ -11,6 +11,7 @@ import org.mewaxdev.item.custom.ChiselItem;
 import org.mewaxdev.item.custom.HammerItem;
 import org.mewaxdev.item.custom.ModArmorItem;
 import org.mewaxdev.item.custom.PickaxeOfGod;
+import org.mewaxdev.item.custom.tool.PalamodHoeItem;
 
 import java.util.*;
 
@@ -25,28 +26,29 @@ public class ModItems {
 	}
 
 	public static final MaterialItems AMETHYST = new MaterialItems(
-			"amethyst", ModToolMaterials.AMETHYST, ModArmorMaterials.AMETHYST_ARMOR_MATERIAL,
+			"amethyst", ModToolMaterials.AMETHYST, ModArmorMaterials.AMETHYST_ARMOR_MATERIAL, 2,
 			new MaterialItems.Options()
 	);
 
 	public static final MaterialItems TITANE = new MaterialItems(
-			"titane", ModToolMaterials.TITANE, ModArmorMaterials.TITANE_ARMOR_MATERIAL,
+			"titane", ModToolMaterials.TITANE, ModArmorMaterials.TITANE_ARMOR_MATERIAL, 4,
 			new MaterialItems.Options()
 	);
 
 	public static final MaterialItems PALADIUM = new MaterialItems(
-			"paladium", ModToolMaterials.PALADIUM, ModArmorMaterials.PALADIUM_ARMOR_MATERIAL, new MaterialItems.Options()
+			"paladium", ModToolMaterials.PALADIUM, ModArmorMaterials.PALADIUM_ARMOR_MATERIAL, 6,
+			new MaterialItems.Options()
 	);
 
 	public static final MaterialItems GREEN_PALADIUM = new MaterialItems(
-			"green_paladium", ModToolMaterials.GREEN_PALADIUM, ModArmorMaterials.GREEN_PALADIUM_ARMOR_MATERIAL,
+			"green_paladium", ModToolMaterials.GREEN_PALADIUM, ModArmorMaterials.GREEN_PALADIUM_ARMOR_MATERIAL, 8,
 			new MaterialItems.Options()
 					.hammer(false)
 					.customSword(false)
 	);
 
 	public static final MaterialItems MIXED_ENDIUM = new MaterialItems(
-			"mixed_endium", ModToolMaterials.ENDIUM, ModArmorMaterials.MIXED_ARMOR_MATERIAL,
+			"mixed_endium", ModToolMaterials.ENDIUM, ModArmorMaterials.MIXED_ARMOR_MATERIAL, 0,
 			new MaterialItems.Options()
 					.raw(false)
 					.hammer(false)
@@ -60,11 +62,10 @@ public class ModItems {
 	);
 
 	public static final MaterialItems ENDIUM = new MaterialItems(
-			"endium", ModToolMaterials.ENDIUM, ModArmorMaterials.ENDIUM_ARMOR_MATERIAL,
+			"endium", ModToolMaterials.ENDIUM, ModArmorMaterials.ENDIUM_ARMOR_MATERIAL, 12,
 			new MaterialItems.Options()
 					.raw(false)
 					.hammer(false)
-					.shovel(false)
 					.customSword(false)
 					.custom("fragment", new Item.Settings())
 	);
@@ -195,7 +196,7 @@ public class ModItems {
 			}
 		}
 
-		public MaterialItems(String name, ToolMaterial toolMaterial, RegistryEntry<ArmorMaterial> armorMaterial, Options options) {
+		public MaterialItems(String name, ToolMaterial toolMaterial, RegistryEntry<ArmorMaterial> armorMaterial, int hoeRange, Options options) {
 			this.name = name;
 
 			this.INGOT = registerItem(name + "_ingot", new Item(new Item.Settings()));
@@ -215,7 +216,7 @@ public class ModItems {
 					new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(toolMaterial, 2, -3.2f)))) : null;
 			this.SHOVEL = options.includeShovel ? registerItem(name + "_shovel", new ShovelItem(toolMaterial,
 					new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(toolMaterial, 0, -2.0f)))) : null;
-			this.HOE = options.includeHoe ? registerItem(name + "_hoe", new HoeItem(toolMaterial,
+			this.HOE = options.includeHoe ? registerItem(name + "_hoe", new PalamodHoeItem(toolMaterial, hoeRange,
 					new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(toolMaterial, 0, -2.0f)))) : null;
 
 			this.HAMMER = options.includeHammer ? registerItem(name + "_hammer", new HammerItem(toolMaterial,
