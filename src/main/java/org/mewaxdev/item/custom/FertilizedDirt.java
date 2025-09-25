@@ -8,7 +8,6 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import org.mewaxdev.block.custom.ModCropBlock;
 
 public class FertilizedDirt extends FarmlandBlock {
 	public static final IntProperty MOISTURE = Properties.MOISTURE;
@@ -29,14 +28,6 @@ public class FertilizedDirt extends FarmlandBlock {
 
 	@Override
 	protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-		BlockPos above = pos.up();
-		BlockState cropState = world.getBlockState(above);
-
-		if (cropState.getBlock() instanceof ModCropBlock crop) {
-			int age = cropState.get(ModCropBlock.AGE);
-			if (age < crop.getMaxAge()) {
-				world.setBlockState(above, cropState.with(ModCropBlock.AGE, age + 1), Block.NOTIFY_LISTENERS);
-			}
-		}
+		super.randomTick(state, world, pos, random);
 	}
 }

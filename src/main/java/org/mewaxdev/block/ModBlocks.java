@@ -93,7 +93,7 @@ public class ModBlocks {
 			new ModCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY).mapColor(MapColor.DARK_GREEN)
 			));
 
-	public static final Block FERTILIZED_DIRT = registerBlock("fertilized_dirt",
+	public static final Block FERTILIZED_DIRT = registerNonClassBlock("fertilized_dirt",
 			new FertilizedDirt(AbstractBlock.Settings.create()
 			));
 

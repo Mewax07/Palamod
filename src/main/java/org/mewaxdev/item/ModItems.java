@@ -1,5 +1,6 @@
 package org.mewaxdev.item;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -12,6 +13,7 @@ import org.mewaxdev.item.custom.HammerItem;
 import org.mewaxdev.item.custom.ModArmorItem;
 import org.mewaxdev.item.custom.PickaxeOfGod;
 import org.mewaxdev.item.custom.tool.PalamodHoeItem;
+import org.mewaxdev.item.custom.tool.SeedplanterItem;
 
 import java.util.*;
 
@@ -93,6 +95,23 @@ public class ModItems {
 	public static final Item GOD_PICKAXE = registerItem("god_pickaxe",
 			new PickaxeOfGod(ModToolMaterials.GOD_PICKAXE, new Item.Settings()
 			));
+
+	public static final Item AMETHYST_SEEDPLANTER = registerNonClassItem("amethyst_seed_planter",
+			new SeedplanterItem(
+				new Item.Settings().maxCount(1),
+				3,
+				10,
+				List.of(Blocks.WHEAT, Blocks.CARROTS, Blocks.POTATOES)
+			));
+
+	public static final Item TITANIUM_SEEDPLANTER = registerNonClassItem("titane_seed_planter",
+		new SeedplanterItem(
+			new Item.Settings().maxCount(1),
+			5,
+			30,
+			List.of(Blocks.WHEAT, Blocks.CARROTS, Blocks.PUMPKIN, Blocks.MELON)
+		));
+
 
 	private static Item registerItem(String name, Item item) {
 		return Registry.register(Registries.ITEM, Identifier.of(Palamod.MOD_ID, name), item);
