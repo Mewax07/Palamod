@@ -8,10 +8,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.block.ModBlocks;
-import org.mewaxdev.item.custom.ChiselItem;
-import org.mewaxdev.item.custom.HammerItem;
-import org.mewaxdev.item.custom.ModArmorItem;
-import org.mewaxdev.item.custom.PickaxeOfGod;
+import org.mewaxdev.item.custom.*;
 import org.mewaxdev.item.custom.tool.PalamodHoeItem;
 import org.mewaxdev.item.custom.tool.SeedplanterItem;
 
@@ -98,20 +95,24 @@ public class ModItems {
 
 	public static final Item AMETHYST_SEEDPLANTER = registerNonClassItem("amethyst_seed_planter",
 			new SeedplanterItem(
-				new Item.Settings().maxCount(1),
-				3,
-				10,
-				List.of(Blocks.WHEAT, Blocks.CARROTS, Blocks.POTATOES)
+					new Item.Settings().maxCount(1),
+					3,
+					10,
+					List.of(Items.WHEAT_SEEDS, Items.CARROT, Items.POTATO)
 			));
 
 	public static final Item TITANIUM_SEEDPLANTER = registerNonClassItem("titane_seed_planter",
-		new SeedplanterItem(
-			new Item.Settings().maxCount(1),
-			5,
-			30,
-			List.of(Blocks.WHEAT, Blocks.CARROTS, Blocks.PUMPKIN, Blocks.MELON)
-		));
+			new SeedplanterItem(
+					new Item.Settings().maxCount(1),
+					5,
+					30,
+					List.of(Items.WHEAT_SEEDS, Items.CARROT, Items.PUMPKIN_SEEDS, Items.MELON_SEEDS)
+			));
 
+	public static final Item HANG_GLIDER = registerNonClassItem("hangglider",
+			new Hangglider(
+					new Item.Settings()
+			));
 
 	private static Item registerItem(String name, Item item) {
 		return Registry.register(Registries.ITEM, Identifier.of(Palamod.MOD_ID, name), item);

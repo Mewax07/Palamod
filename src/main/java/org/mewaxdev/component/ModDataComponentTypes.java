@@ -13,6 +13,9 @@ public class ModDataComponentTypes {
 	public static final ComponentType<Integer> XP_LEVEL = register("xp_level", build -> build.codec(Codec.INT));
 	public static final ComponentType<Integer> LEVEL = register("level", build -> build.codec(Codec.INT));
 
+	public static final ComponentType<Boolean> HANGGLIDER_ACTIVE =
+			register("hangglider_active", build -> build.codec(Codec.BOOL));
+
 	private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
 		return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(Palamod.MOD_ID, name),
 				builderOperator.apply(ComponentType.builder()).build());

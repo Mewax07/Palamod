@@ -39,6 +39,7 @@ public class PalamodHoeItem extends HoeItem {
 				}
 			}
 		}
+
 		return ActionResult.SUCCESS;
 	}
 }
