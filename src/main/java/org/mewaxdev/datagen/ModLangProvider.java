@@ -28,6 +28,7 @@ public class ModLangProvider extends FabricLanguageProvider {
 			String name = parseName(mat.name());
 
 			if (mat.INGOT != null) translationBuilder.add(mat.INGOT, name + " Ingot");
+			if (mat.PARTICLE != null) translationBuilder.add(mat.PARTICLE, name + " Particle");
 			if (mat.RAW != null) translationBuilder.add(mat.RAW, "Raw " + name);
 
 			if (mat.SWORD != null) translationBuilder.add(mat.SWORD, name + " Sword");

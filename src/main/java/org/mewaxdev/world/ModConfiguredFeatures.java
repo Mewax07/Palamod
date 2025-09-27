@@ -9,16 +9,17 @@ import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.block.ModBlocks;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ModConfiguredFeatures {
-	public static final RegistryKey<ConfiguredFeature<?, ?>> PALADIUM_ORE_KEY = registryKey("paladium_ore");
+	public static final Map<String, RegistryKey<ConfiguredFeature<?, ?>>> ORE_KEYS = new HashMap<>();
 
 	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
 		RuleTest stoneReplaceable = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -38,19 +39,18 @@ public class ModConfiguredFeatures {
 				}
 
 				RegistryKey<ConfiguredFeature<?, ?>> key = registryKey(mat.name() + "_ore");
+
 				context.register(key, new ConfiguredFeature<>(
 						Feature.ORE,
 						new OreFeatureConfig(targets, gen.veinSize, 0.5f)
 				));
+
+				ORE_KEYS.put(mat.name(), key);
 			}
 		}
 	}
 
 	public static RegistryKey<ConfiguredFeature<?, ?>> registryKey(String name) {
 		return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(Palamod.MOD_ID, name));
-	}
-
-	private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
-		context.register(key, new ConfiguredFeature<>(feature, configuration));
 	}
 }

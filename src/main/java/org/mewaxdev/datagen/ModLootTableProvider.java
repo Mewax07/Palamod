@@ -2,6 +2,7 @@ package org.mewaxdev.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
@@ -45,6 +46,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 			if (ModBlocks.hasBlock("deepslate_" + name + "_ore")) {
 				addDrop(ModBlocks.getBlock("deepslate_" + name + "_ore"), oreDrops(ModBlocks.getBlock("deepslate_" + name + "_ore"), withoutSilkTouch));
 			}
+		}
+
+		for (Block block : ModBlocks.NON_CLASS_REGISTERED_BLOCKS.values()) {
+			addDrop(block);
 		}
 
 		ModCropBlock kiwanoCrop = (ModCropBlock) ModBlocks.KIWANO_CROP;

@@ -83,6 +83,9 @@ public class ModBlocks {
 
 	public static final Block WARNING = registerNonClassBlock("warning",
 			new Block(AbstractBlock.Settings.create()
+					.strength(3f)
+					.requiresTool()
+					.sounds(BlockSoundGroup.STONE)
 			));
 
 	public static final Block KIWANO_CROP = registerBlock("kiwano",
@@ -95,6 +98,9 @@ public class ModBlocks {
 
 	public static final Block FERTILIZED_DIRT = registerNonClassBlock("fertilized_dirt",
 			new FertilizedDirt(AbstractBlock.Settings.create()
+					.strength(5f)
+					.requiresTool()
+					.sounds(BlockSoundGroup.GRASS)
 			));
 
 	public static class MaterialBlocks {

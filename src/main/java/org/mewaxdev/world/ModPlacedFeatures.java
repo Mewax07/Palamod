@@ -15,10 +15,12 @@ import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.block.ModBlocks;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ModPlacedFeatures {
-	public static final RegistryKey<PlacedFeature> PALADIUM_ORE_PLACED_KEY = registerKey("paladium_ore_placed");
+	public static final Map<String, RegistryKey<PlacedFeature>> ORE_KEYS = new HashMap<>();
 
 	public static void bootstrap(Registerable<PlacedFeature> context) {
 		var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -41,6 +43,8 @@ public class ModPlacedFeatures {
 						ModOrePlacement.modifiersWithCount(gen.veinsPerChunk,
 								HeightRangePlacementModifier.trapezoid(YOffset.fixed(gen.minY), YOffset.fixed(gen.maxY)))
 				));
+
+				ORE_KEYS.put(mat.name(), placedKey);
 			}
 		}
 	}

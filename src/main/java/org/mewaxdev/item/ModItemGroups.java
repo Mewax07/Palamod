@@ -24,6 +24,7 @@ public class ModItemGroups {
 					.entries((displayContext, entries) -> {
 						for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
 							if (mat.INGOT != null) entries.add(mat.INGOT);
+							if (mat.PARTICLE != null) entries.add(mat.PARTICLE);
 							if (mat.RAW != null) entries.add(mat.RAW);
 
 							if (mat.SWORD != null) entries.add(mat.SWORD);

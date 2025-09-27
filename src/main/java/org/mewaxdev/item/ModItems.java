@@ -1,6 +1,5 @@
 package org.mewaxdev.item;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -57,6 +56,7 @@ public class ModItems {
 					.axe(false)
 					.shovel(false)
 					.hoe(false)
+					.particle(false)
 					.armor(true)
 	);
 
@@ -66,6 +66,7 @@ public class ModItems {
 					.raw(false)
 					.hammer(false)
 					.customSword(false)
+					.particle(false)
 					.custom("fragment", new Item.Settings())
 	);
 
@@ -109,6 +110,60 @@ public class ModItems {
 					List.of(Items.WHEAT_SEEDS, Items.CARROT, Items.PUMPKIN_SEEDS, Items.MELON_SEEDS)
 			));
 
+	public static final Item PALADIUM_SEEDPLANTER = registerNonClassItem("paladium_seed_planter",
+			new SeedplanterItem(
+					new Item.Settings().maxCount(1),
+					7,
+					65,
+					List.of(
+							Items.WHEAT_SEEDS,
+							Items.CARROT,
+							Items.POTATO,
+							Items.PUMPKIN_SEEDS,
+							Items.MELON_SEEDS,
+							Items.BEETROOT_SEEDS,
+							ModItems.KIWANO_SEEDS
+					)
+			));
+
+	public static final Item GREEN_PALADIUM_SEEDPLANTER = registerNonClassItem("green_paladium_seed_planter",
+			new SeedplanterItem(
+					new Item.Settings().maxCount(1),
+					13,
+					85,
+					List.of(
+							Items.WHEAT_SEEDS,
+							Items.CARROT,
+							Items.POTATO,
+							Items.PUMPKIN_SEEDS,
+							Items.MELON_SEEDS,
+							Items.BEETROOT_SEEDS,
+							Items.TORCHFLOWER_SEEDS,
+							Items.PITCHER_POD,
+							ModItems.KIWANO_SEEDS,
+							ModItems.ORANGEBLUE_SEEDS
+					)
+			));
+
+	public static final Item ENDIUM_SEEDPLANTER = registerNonClassItem("endium_seed_planter",
+			new SeedplanterItem(
+					new Item.Settings().maxCount(1),
+					13,
+					100,
+					List.of(
+							Items.WHEAT_SEEDS,
+							Items.CARROT,
+							Items.POTATO,
+							Items.PUMPKIN_SEEDS,
+							Items.MELON_SEEDS,
+							Items.BEETROOT_SEEDS,
+							Items.TORCHFLOWER_SEEDS,
+							Items.PITCHER_POD,
+							ModItems.KIWANO_SEEDS,
+							ModItems.ORANGEBLUE_SEEDS
+					)
+			));
+
 	public static final Item HANG_GLIDER = registerNonClassItem("hangglider",
 			new Hangglider(
 					new Item.Settings()
@@ -149,6 +204,7 @@ public class ModItems {
 		public final Item CHESTPLATE;
 		public final Item LEGGINGS;
 		public final Item BOOTS;
+		public final Item PARTICLE;
 
 		public final Map<String, Item> CUSTOM_ITEMS = new HashMap<>();
 
@@ -162,6 +218,7 @@ public class ModItems {
 			private boolean includeAxe = true;
 			private boolean includeShovel = true;
 			private boolean includeHoe = true;
+			private boolean includeParticle = true;
 
 			private final Map<String, Item> customItems = new HashMap<>();
 
@@ -210,6 +267,11 @@ public class ModItems {
 				return this;
 			}
 
+			public Options particle(boolean value) {
+				includeParticle = value;
+				return this;
+			}
+
 			public Options custom(String suffix, Item.Settings settings) {
 				customItems.put(suffix, new Item(settings));
 				return this;
@@ -220,7 +282,7 @@ public class ModItems {
 			this.name = name;
 
 			this.INGOT = registerItem(name + "_ingot", new Item(new Item.Settings()));
-
+			this.PARTICLE = options.includeParticle ? registerItem("particle_" + name, new Item(new Item.Settings())) : null;
 			this.RAW = options.includeRaw ? registerItem("raw_" + name, new Item(new Item.Settings())) : null;
 
 			this.BROAD_SWORD = options.includeCustomSword ? registerItem(name + "_broad_sword", new SwordItem(toolMaterial,

@@ -20,6 +20,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		FabricTagProvider<Item>.FabricTagBuilder builder = getOrCreateTagBuilder(ModTags.Items.TRANSFORMABLE_ITEMS);
 		for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
 			if (mat.INGOT != null) builder.add(mat.INGOT);
+			if (mat.PARTICLE != null) builder.add(mat.PARTICLE);
 			if (mat.RAW != null) builder.add(mat.RAW);
 			if (mat.HAMMER != null) builder.add(mat.HAMMER);
 

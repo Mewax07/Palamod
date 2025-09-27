@@ -38,6 +38,7 @@ public class ModModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 		for (ModItems.MaterialItems mat : ModItems.getAllMaterials()) {
 			if (mat.INGOT != null) itemModelGenerator.register(mat.INGOT, Models.GENERATED);
+			if (mat.PARTICLE != null) itemModelGenerator.register(mat.PARTICLE, Models.GENERATED);
 			if (mat.RAW != null) itemModelGenerator.register(mat.RAW, Models.GENERATED);
 
 			if (mat.SWORD != null) itemModelGenerator.register(mat.SWORD, Models.HANDHELD);

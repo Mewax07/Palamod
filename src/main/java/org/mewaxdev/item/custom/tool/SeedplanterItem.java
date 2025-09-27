@@ -39,7 +39,7 @@ public class SeedplanterItem extends Item {
 
 		for (int x = start; x <= end; x++) {
 			for (int z = start; z <= end; z++) {
-				BlockPos targetPos = pos.add(x, 0, z);
+				BlockPos targetPos = pos.add(x, 1, z);
 				Block floor = world.getBlockState(targetPos.down()).getBlock();
 
 				if (floor == Blocks.FARMLAND || floor == ModBlocks.FERTILIZED_DIRT) {
@@ -63,11 +63,7 @@ public class SeedplanterItem extends Item {
 		ItemStack seedStack = findSeedInInventory(player, seedItem);
 		if (seedStack == null || seedStack.isEmpty()) return false;
 
-		ItemUsageContext ctx = new ItemUsageContext(player, Hand.MAIN_HAND,
-				new BlockHitResult(Vec3d.ofCenter(pos), Direction.UP, pos, false));
-		ActionResult result = blockItem.useOnBlock(ctx);
-
-		if (result.isAccepted()) {
+		if (!player.isCreative()) {
 			seedStack.decrement(1);
 			return true;
 		}
@@ -82,5 +78,15 @@ public class SeedplanterItem extends Item {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+		return false;
+	}
+
+	@Override
+	public boolean hasGlint(ItemStack stack) {
+		return false;
 	}
 }
