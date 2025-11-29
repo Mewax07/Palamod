@@ -16,8 +16,8 @@ import java.util.UUID;
 public final class DefaultPlayerSkinMixin {
 	@Unique
 	private static final SkinTextures[] DEV_SKINS = new SkinTextures[]{
-		createSkinTextures("textures/entity/player/wide/zeldown.png", SkinTextures.Model.WIDE),
-		createSkinTextures("textures/entity/player/wide/fuzeiii.png", SkinTextures.Model.WIDE),
+			createSkinTextures("textures/entity/player/wide/zeldown.png", SkinTextures.Model.WIDE),
+			createSkinTextures("textures/entity/player/wide/fuzeiii.png", SkinTextures.Model.WIDE),
 	};
 
 	@Inject(method = "getSkinTextures(Ljava/util/UUID;)Lnet/minecraft/client/util/SkinTextures;", at = @At("HEAD"), cancellable = true)

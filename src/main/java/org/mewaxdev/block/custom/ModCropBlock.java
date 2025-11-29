@@ -1,16 +1,15 @@
 package org.mewaxdev.block.custom;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
 import org.mewaxdev.block.ModBlocks;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 public class ModCropBlock extends CropBlock {
 	public static final int MAX_AGE = 4;
@@ -33,7 +32,7 @@ public class ModCropBlock extends CropBlock {
 				if (floor.isOf(ModBlocks.FERTILIZED_DIRT)) {
 					float f = CropBlock.getAvailableMoisture(crop, world, pos);
 
-					if (random.nextInt((int)(10.0F / f) + 1) == 0) {
+					if (random.nextInt((int) (10.0F / f) + 1) == 0) {
 						world.setBlockState(pos, crop.withAge(age + 1), Block.NOTIFY_LISTENERS);
 					}
 				}

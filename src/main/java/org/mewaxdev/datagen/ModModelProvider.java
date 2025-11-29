@@ -2,7 +2,10 @@ package org.mewaxdev.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.*;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import org.mewaxdev.block.ModBlocks;
@@ -30,6 +33,7 @@ public class ModModelProvider extends FabricModelProvider {
 		}
 
 		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WARNING);
+		blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ELEVATOR_BLOCK);
 		blockStateModelGenerator.registerCrop(ModBlocks.KIWANO_CROP, ModCropBlock.AGE, 0, 1, 2, 3, 4);
 		blockStateModelGenerator.registerCrop(ModBlocks.ORANGEBLUE_CROP, ModCropBlock.AGE, 0, 1, 2, 3, 4);
 	}

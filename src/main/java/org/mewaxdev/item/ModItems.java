@@ -11,7 +11,10 @@ import org.mewaxdev.item.custom.*;
 import org.mewaxdev.item.custom.tool.PalamodHoeItem;
 import org.mewaxdev.item.custom.tool.SeedplanterItem;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ModItems {
 	public static final Map<String, Item> NON_CLASS_REGISTERED_ITEM = new HashMap<>();

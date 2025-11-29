@@ -14,7 +14,6 @@ import net.minecraft.util.Arm;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameMode;
-import org.mewaxdev.Palamod;
 import org.mewaxdev.ui.DrawShapeModern;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -323,7 +322,7 @@ public abstract class HotbarMixin {
 		int food = player.getHungerManager().getFoodLevel();
 		float saturation = player.getHungerManager().getSaturationLevel();
 		boolean isHungry = player.getHungerManager().getSaturationLevel() <= 0.0F &&
-				client.world.getTime() % (food * 3 + 1) == 0;
+				client.world.getTime() % (food * 3L + 1) == 0;
 
 		int foodY = baseY;
 

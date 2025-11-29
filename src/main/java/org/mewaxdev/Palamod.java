@@ -1,7 +1,6 @@
 package org.mewaxdev;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.block.Block;
@@ -13,7 +12,6 @@ import org.mewaxdev.event.ModEvents;
 import org.mewaxdev.item.ModItemGroups;
 import org.mewaxdev.item.ModItems;
 import org.mewaxdev.util.HammerUsageEvent;
-import org.mewaxdev.util.ModModelPredicates;
 import org.mewaxdev.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +22,7 @@ public class Palamod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        ModItems.registerModItems();
+		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 

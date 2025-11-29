@@ -40,8 +40,8 @@ public class ModPlacedFeatures {
 
 				context.register(placedKey, new PlacedFeature(
 						configEntry,
-						ModOrePlacement.modifiersWithCount(gen.veinsPerChunk,
-								HeightRangePlacementModifier.trapezoid(YOffset.fixed(gen.minY), YOffset.fixed(gen.maxY)))
+						ModOrePlacement.modifiersWithCount(gen.veinsPerChunk(),
+								HeightRangePlacementModifier.trapezoid(YOffset.fixed(gen.minY()), YOffset.fixed(gen.maxY())))
 				));
 
 				ORE_KEYS.put(mat.name(), placedKey);

@@ -43,10 +43,10 @@ public final class DrawShapeModern {
 		Tessellator tess = Tessellator.getInstance();
 		BufferBuilder buffer = tess.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
 
-		buffer.vertex(mat, (float)x1, (float)y2, 0f).color(r, g, b, a);
-		buffer.vertex(mat, (float)x2, (float)y2, 0f).color(r, g, b, a);
-		buffer.vertex(mat, (float)x2, (float)y1, 0f).color(r, g, b, a);
-		buffer.vertex(mat, (float)x1, (float)y1, 0f).color(r, g, b, a);
+		buffer.vertex(mat, (float) x1, (float) y2, 0f).color(r, g, b, a);
+		buffer.vertex(mat, (float) x2, (float) y2, 0f).color(r, g, b, a);
+		buffer.vertex(mat, (float) x2, (float) y1, 0f).color(r, g, b, a);
+		buffer.vertex(mat, (float) x1, (float) y1, 0f).color(r, g, b, a);
 
 		BufferRenderer.drawWithGlobalProgram(buffer.end());
 

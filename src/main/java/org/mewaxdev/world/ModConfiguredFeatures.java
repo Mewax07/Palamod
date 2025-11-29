@@ -42,7 +42,7 @@ public class ModConfiguredFeatures {
 
 				context.register(key, new ConfiguredFeature<>(
 						Feature.ORE,
-						new OreFeatureConfig(targets, gen.veinSize, 0.5f)
+						new OreFeatureConfig(targets, gen.veinSize(), 0.5f)
 				));
 
 				ORE_KEYS.put(mat.name(), key);

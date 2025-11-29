@@ -12,8 +12,6 @@ import net.minecraft.util.Identifier;
 import org.mewaxdev.Palamod;
 import org.mewaxdev.block.ModBlocks;
 
-import java.util.Map;
-
 public class ModItemGroups {
 	public static final ItemGroup PALAMOD_ITEMS_GROUP = Registry.register(
 			Registries.ITEM_GROUP,

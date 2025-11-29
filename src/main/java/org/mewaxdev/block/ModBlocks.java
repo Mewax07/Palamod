@@ -1,6 +1,7 @@
 package org.mewaxdev.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -10,8 +11,9 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import org.mewaxdev.Palamod;
+import org.mewaxdev.block.custom.ModCaveBlock;
 import org.mewaxdev.block.custom.ModCropBlock;
-import org.mewaxdev.item.ModItems;
+import org.mewaxdev.block.custom.ModElevatorBlock;
 import org.mewaxdev.item.custom.FertilizedDirt;
 
 import java.util.Arrays;
@@ -103,6 +105,17 @@ public class ModBlocks {
 					.sounds(BlockSoundGroup.GRASS)
 			));
 
+	public static final Block CAVE_BLOCK = registerNonClassBlock("cave_block",
+			new ModCaveBlock(AbstractBlock.Settings.create()
+					.sounds(BlockSoundGroup.GLASS)
+					.strength(1.5f, 4f)
+					.requiresTool()
+			));
+
+	public static final Block ELEVATOR_BLOCK = registerNonClassBlock("elevator_block",
+			new ModElevatorBlock()
+			);
+
 	public static class MaterialBlocks {
 		private final String name;
 		public Options options;
@@ -163,18 +176,7 @@ public class ModBlocks {
 			}
 		}
 
-		public static class OreGenOptions {
-			public final int veinSize;
-			public final int veinsPerChunk;
-			public final int minY;
-			public final int maxY;
-
-			public OreGenOptions(int veinSize, int veinsPerChunk, int minY, int maxY) {
-				this.veinSize = veinSize;
-				this.veinsPerChunk = veinsPerChunk;
-				this.minY = minY;
-				this.maxY = maxY;
-			}
+		public record OreGenOptions(int veinSize, int veinsPerChunk, int minY, int maxY) {
 		}
 
 		public MaterialBlocks(String name, Options options) {

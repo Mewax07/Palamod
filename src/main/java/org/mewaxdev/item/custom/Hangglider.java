@@ -7,53 +7,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.mewaxdev.component.ModDataComponentTypes;
 
 public class Hangglider extends Item {
 	public Hangglider(Settings settings) {
 		super(settings);
-	}
-
-	@Override
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		ItemStack stack = user.getStackInHand(hand);
-
-		if (!world.isClient) {
-			boolean active = isActive(stack);
-			setActive(stack, !active);
-		}
-
-		return new TypedActionResult<>(ActionResult.SUCCESS, stack);
-	}
-
-	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-		if (!(entity instanceof PlayerEntity player)) return;
-
-		if (isActive(stack)) {
-			boolean touchedBlock = player.isOnGround() || player.horizontalCollision;
-			if (touchedBlock) {
-				if (!world.isClient) {
-					setActive(stack, false);
-				}
-				return;
-			}
-		}
-
-		if (entity instanceof PlayerEntity && isActive(stack) && selected && !player.isOnGround() && !player.isFallFlying()) {
-			if (isActive(stack) && selected && !player.isOnGround() && !player.isFallFlying()) {
-				if (player.getVelocity().y < -0.05) {
-					player.setVelocity(player.getVelocity().x, -0.05, player.getVelocity().z);
-				}
-				player.addVelocity(player.getRotationVector().x * 0.02, 0, player.getRotationVector().z * 0.02);
-				player.fallDistance = -70;
-			}
-		}
-	}
-
-	@Override
-	public boolean hasGlint(ItemStack stack) {
-		return isActive(stack);
 	}
 
 	private static boolean isActive(ItemStack stack) {
@@ -63,5 +23,55 @@ public class Hangglider extends Item {
 
 	private static void setActive(ItemStack stack, boolean active) {
 		stack.set(ModDataComponentTypes.HANGGLIDER_ACTIVE, active);
+	}
+
+	@Override
+	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+		ItemStack stack = user.getStackInHand(hand);
+
+		if (!world.isClient) {
+			setActive(stack, !isActive(stack));
+		}
+
+		return new TypedActionResult<>(ActionResult.SUCCESS, stack);
+	}
+
+	@Override
+	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+		if (!(entity instanceof PlayerEntity player)) return;
+
+		boolean active = isActive(stack);
+
+		if (active && (player.isOnGround() || player.horizontalCollision)) {
+			if (!world.isClient) {
+				setActive(stack, false);
+			}
+			return;
+		}
+
+		if (!active || !selected || player.isOnGround() || player.isFallFlying()) return;
+
+		Vec3d vel = player.getVelocity();
+
+		if (vel.y < -0.10) {
+			player.setVelocity(vel.x, -0.10, vel.z);
+		}
+
+		player.addVelocity(player.getRotationVector().x * 0.03, 0, player.getRotationVector().z * 0.03);
+
+		player.fallDistance = 0;
+
+		if (player.isSneaking()) {
+			player.addVelocity(player.getRotationVector().x * 0.03, -0.10, player.getRotationVector().z * 0.03);
+		}
+
+		if (player.isTouchingWater()) {
+			player.addVelocity(player.getRotationVector().x * 0.10, player.isSneaking() ? -0.10 : 0.02, player.getRotationVector().z * 0.10);
+		}
+	}
+
+	@Override
+	public boolean hasGlint(ItemStack stack) {
+		return isActive(stack);
 	}
 }

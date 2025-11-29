@@ -22,13 +22,13 @@ public class HammerUsageEvent implements PlayerBlockBreakEvents.Before {
 									BlockState state, @Nullable BlockEntity blockEntity) {
 		ItemStack mainHandItem = player.getMainHandStack();
 
-		if(mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayerEntity serverPlayer) {
-			if(HARVESTED_BLOCKS.contains(pos)) {
+		if (mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayerEntity serverPlayer) {
+			if (HARVESTED_BLOCKS.contains(pos)) {
 				return true;
 			}
 
-			for(BlockPos position : HammerItem.getBlocksToBeDestroyed(1, pos, serverPlayer)) {
-				if(pos == position || !hammer.isCorrectForDrops(mainHandItem, world.getBlockState(position))) {
+			for (BlockPos position : HammerItem.getBlocksToBeDestroyed(1, pos, serverPlayer)) {
+				if (pos == position || !hammer.isCorrectForDrops(mainHandItem, world.getBlockState(position))) {
 					continue;
 				}
 

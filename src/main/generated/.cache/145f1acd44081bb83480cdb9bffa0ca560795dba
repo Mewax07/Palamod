@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-27T21:03:37.4388465	Palamod/Model Definitions
+// 1.21.1	2025-11-29T15:57:39.4478362	Palamod/Model Definitions
 40c560d9883228f6068ca6aff9f68da2f6d6ae91 assets\palamod\models\item\titane_chestplate_emerald_trim.json
 18a6196d4ce6a9b87a614ea9942f8175b96ff98c assets\palamod\models\item\green_paladium_ore.json
 0f0d42a18c12d3c95010be77c4c400ec8f3e176e assets\palamod\models\block\kiwano_stage4.json
@@ -154,8 +154,8 @@ c5ef4b75d22cb8262c524de329d1713f49699fda assets\palamod\blockstates\titane_block
 ca9c0819d63c9f05c9112f2e199fe7496f26db02 assets\palamod\models\item\paladium_hammer.json
 89f62241a83923085c54401ab4d4f75309397255 assets\palamod\models\item\god_pickaxe_12.json
 c2a1de59bbf3370e1ce0ef68eaf74325b1bd71dd assets\palamod\models\block\green_paladium_ore.json
-02aa39cca6afc7c739fbd74d17c150a1784de261 assets\palamod\models\item\raw_titane_block.json
 a12dd62429930de935008ce6e5bcfd3163470c85 assets\palamod\models\item\particle_titane.json
+02aa39cca6afc7c739fbd74d17c150a1784de261 assets\palamod\models\item\raw_titane_block.json
 21c41f031ba93fd5239698d15cd82a1c318ac650 assets\palamod\models\item\endium_leggings_iron_trim.json
 5c5017613c9616cf37ef1089e994f6f7be80e17d assets\palamod\models\block\kiwano_stage3.json
 10068000affdce7df912d6360b68a08270e26b3d assets\palamod\models\item\paladium_helmet_lapis_trim.json
@@ -185,6 +185,8 @@ ac3f0cb9dd1205d0cfaa925971795867f9467b4f assets\palamod\models\item\mixed_endium
 49d9184826e69c1c631cfa36815b2048d9b681b1 assets\palamod\models\item\mixed_endium_helmet_copper_trim.json
 a89b1082c6cd37082290d6740a0596d9f05c2091 assets\palamod\blockstates\titane_block_stairs.json
 1e2fce9c7b60c5204ad7a61b8f319f3287b0d20a assets\palamod\models\item\paladium_leggings_netherite_trim.json
+e6df729a5cdeaadf42f1fb4e5b5a6659406a37f2 assets\palamod\blockstates\elevator_block.json
+2cc35dd079d1b28b14a9fdada42933e2ab93e66b assets\palamod\models\item\elevator_block.json
 111af572b562e4d95e3ec4cb631c3a186923ccd5 assets\palamod\models\item\god_pickaxe_0.json
 772d9733765d9e80e4a3f44c321c2cc3e773f414 assets\palamod\models\item\mixed_endium_helmet_redstone_trim.json
 6645edbe164e628987024cc8884c5db9b40a6386 assets\palamod\models\item\amethyst_chestplate.json
@@ -215,6 +217,7 @@ bb0360202f53c308368a282e6ad3590141e75bbc assets\palamod\models\item\titane_chest
 5b49fcc19fadce6ca40497594e56dd3959c3420a assets\palamod\models\item\endium_chestplate_amethyst_trim.json
 c0a59683efedb9e3e0d3358476957814d648c60d assets\palamod\models\block\paladium_block_stairs.json
 457f85917a07e825d9440840e4f71492e14ab8a9 assets\palamod\models\item\amethyst_boots_gold_trim.json
+91830cdaaa6583b815929ea3698f2bde621a95d9 assets\palamod\models\block\elevator_block.json
 a0fa3dc035b8c784b365bbabf02aa2f679eeb09d assets\palamod\models\block\deepslate_endium_ore.json
 fed3602e20c14609f2195af7476be2ce6d6cd189 assets\palamod\models\item\green_paladium_leggings_redstone_trim.json
 d2d7ed96da3b333ccda6b31c1d9973e0c15a3121 assets\palamod\models\item\green_paladium_leggings_lapis_trim.json

@@ -28,8 +28,8 @@ public class PalamodHoeItem extends HoeItem {
 		BlockPos pos = context.getBlockPos();
 
 		if (!world.isClient) {
-			for (int dx = -range/2; dx < range/2; dx++) {
-				for (int dz = -range/2; dz < range/2; dz++) {
+			for (int dx = -range / 2; dx < range / 2; dx++) {
+				for (int dz = -range / 2; dz < range / 2; dz++) {
 					BlockPos targetPos = pos.add(dx, 0, dz);
 					BlockState targetState = world.getBlockState(targetPos);
 

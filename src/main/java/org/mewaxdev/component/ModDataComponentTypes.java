@@ -19,7 +19,7 @@ public class ModDataComponentTypes {
 	public static final ComponentType<Integer> SELECTED_SEED =
 			register("selected_seed", build -> build.codec(Codec.INT));
 
-	private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
+	private static <T> ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
 		return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(Palamod.MOD_ID, name),
 				builderOperator.apply(ComponentType.builder()).build());
 	}
